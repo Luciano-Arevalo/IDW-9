@@ -5,12 +5,14 @@ Repositorio grupo 9
 
 Integrantes:
 
-Arevalo luciano
-
 Candela Acosta
 
-Diego Joaquin Colina
-
-Franco Ardusso
+Diego Joaquin Colina
 
 Guadalupe Cristina Chalup
+
+Franco Ardusso
+
+Enzo leiva
+
+Arevalo luciano
