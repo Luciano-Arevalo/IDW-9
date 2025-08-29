@@ -7,9 +7,7 @@ Integrantes:
 
 Candela Acosta
 
-Diego Joaquin Colina
-
-Franco Ardusso
+Diego Joaquin Colina
 
 Guadalupe Cristina Chalup
 
