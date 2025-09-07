@@ -3,7 +3,7 @@ Repositorio grupo 9
 
 ##################
 
-Integrantes:
+## 🧑‍🤝‍🧑 Integrantes:
 
 Arevalo luciano
 
@@ -16,3 +16,7 @@ Enzo leiva
 Franco Ardusso
 
 Guadalupe Cristina Chalup
+
+## ⚙️ Tecnologías utilizadas:
+- HTML
+- CSS
