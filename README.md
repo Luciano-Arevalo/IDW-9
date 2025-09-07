@@ -3,16 +3,21 @@ Repositorio grupo 9
 
 ##################
 
-Integrantes:
+## 🧑‍🤝‍🧑 Integrantes:
 
-Candela Acosta
+- Arevalo luciano
 
-Diego Joaquin Colina
+- Candela Acosta
 
-Guadalupe Cristina Chalup
+- Diego Joaquin Colina
 
-Franco Ardusso
+- Enzo leiva
 
-Enzo leiva
+- Franco Ardusso
 
-Arevalo luciano
+- Guadalupe Cristina Chalup
+
+## ⚙️ Tecnologías utilizadas:
+- HTML
+- CSS
+>>>>>>> origin/develop
