@@ -5,17 +5,17 @@ Repositorio grupo 9
 
 ## 🧑‍🤝‍🧑 Integrantes:
 
-Arevalo luciano
+- Arevalo luciano
 
-Candela Acosta
+- Candela Acosta
 
-Diego Joaquin Colina
+- Diego Joaquin Colina
 
-Enzo leiva
+- Enzo leiva
 
-Franco Ardusso
+- Franco Ardusso
 
-Guadalupe Cristina Chalup
+- Guadalupe Cristina Chalup
 
 ## ⚙️ Tecnologías utilizadas:
 - HTML
