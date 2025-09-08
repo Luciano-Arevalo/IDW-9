@@ -1,0 +1,216 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../imagenes/home2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #004080;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 70px;
+  margin-right: 15px;
+}
+
+
+.logo h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  background-color: #66a3ff;
+}
+
+main .portada {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(102, 163, 255, 0.5), rgba(0, 64, 128, 0.8));
+  color: white;
+  border-radius: 8px;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+main .portada h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
+
+main .portada p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+
+.medicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin: 50px auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+
+.medico {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  width: 220px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.medico:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.medico img {
+  width: 100%;
+  max-height: 270px;
+  object-fit: cover;
+  object-position: top;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #f0f0f0;
+}
+
+.medico-content {
+  padding: 15px;
+}
+
+.medico h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+  color: #004080;
+}
+
+.medico p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.medico .info-extra {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.medico:hover .info-extra {
+  opacity: 1;
+  max-height: 100px;
+}
+
+
+footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+
+/* 🏥 Obras Sociales */
+.obras-sociales {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  margin: 60px auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.obras-sociales h2 {
+  font-size: 2rem;
+  color: #004080;
+  margin-bottom: 30px;
+}
+
+.obras-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.obra {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 150px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.obra img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.obra p {
+  font-size: 0.95rem;
+  color: #004080;
+  margin: 0;
+  font-weight: 600;
+}
+
+.obra:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}

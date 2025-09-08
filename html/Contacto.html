@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Team_Rocket_2.0">
-  <meta name="description" content="proyectoweb">
-  <meta name="keywords" content="Clinica">
-  <title>Contacto</title>
-  <link rel="icon" type="image/icon" href="">
-  <link rel="stylesheet" href="style-css\contacto.css">
-  <link rel="stylesheet" href="normalize.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Grupo-9" />
+    <meta name="description" content="Contacto Clínica Viento Norte" />
+    <meta name="keywords" content="Contacto, Turnos, Clínica" />
+    <title>Clínica Viento Norte - Contacto</title>
 
-</head>
-<body>
-    
-</body>
+    <link rel="icon" type="image/png" href="../imagenes/logovientonorte.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="../css/contacto.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"
+          ><img
+            src="../imagenes/logovientonorte.png"
+            alt="Logo Clínica Viento Norte"
+        /></a>
+        <h1>Clínica Viento Norte</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="institucional.html">Institucional</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Contacto</h2>
+        <form>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required />
+
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Clínica Viento Norte - Todos los derechos reservados.</p>
+    </footer>
+  </body>
 </html>
