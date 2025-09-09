@@ -11,13 +11,27 @@
   <link rel="stylesheet" href="style-css\contacto.css">
   <link rel="stylesheet" href="normalize.css">
 
+ <link rel="icon" type="image/png" href="imagenes/logovientonorte.png" />
+ <link rel="stylesheet" href="css/contacto.css" />
 </head>
 <body>
-
-  <header>
-    <h1>Clínica Viento Norte</h1>
-    <p>Sección de contacto</p>
-  </header>
+    <header>
+      <div class="logo">
+        <a href="index.html"
+          ><img
+            src="imagenes/logovientonorte.png"
+            alt="Logo Clínica Viento Norte"
+        /></a>
+        <h1>Clínica Viento Norte</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="institucional.html">Institucional</a></li>
+          <li><a href="contacto.html" class="activo">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
 
   <main>
     <section>
@@ -35,8 +49,79 @@
         <label for="dni">DNI:</label><br>
         <input type="text" id="dni" name="dni" placeholder="Ingrese su DNI" required><br><br>
 
+        <div class="form-group">
+              <label for="area">Seleccione el área a contactar <span class="required">*</span></label>
+              <select id="area" name="area" required>
+                <option value="">-- Por favor seleccione --</option>
+                <option value="administracion">Administración y facturación</option>
+                <option value="turnos">Solicitud y cambio de turnos</option>
+                <option value="urgencias">Departamento de urgencias</option>
+                <option value="laboratorio">Laboratorio y análisis clínicos</option>
+                <option value="quejas">Quejas y sugerencias</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="texto-predefinido">
+            <h3>Textos sugeridos según el área:</h3>
+            
+            <details>
+              <summary>Administración y facturación</summary>
+              <div class="sugerencia-texto">
+                <p>Estimado departamento de Administración y Facturación,</p>
+                <p>Me pongo en contacto con ustedes para solicitar información acerca de:</p>
+                <p>- [Especifique su consulta sobre facturación, pagos, etc.]</p>
+                <p>Agradezco de antemano su atención.</p>
+              </div>
+            </details>
+            
+            <details>
+              <summary>Solicitud de turnos médicos</summary>
+              <div class="sugerencia-texto">
+                <p>Estimado departamento</p>
+                <p>Me gustaría solicitar una cita médica con las siguientes características:</p>
+                <p>- Especialidad requerida: [Indique especialidad]</p>
+                <p>- Preferencia de fecha: [Indique fecha preferida]</p>
+                <p>- Motivo de la consulta: [Describa brevemente]</p>
+                <p>Agradezco de antemano su atención.</p>
+                </p>
+              </div>
+            </details>
+            
+            <details>
+              <summary>Departamento de urgencias</summary>
+              <div class="sugerencia-texto">
+                <p>Estimado departamento de Urgencias,</p>
+                <p>Me comunico por el siguiente motivo de urgencia:</p>
+                <p>- [Describa brevemente la situación urgente]</p>
+                <p>- Síntomas principales: [Liste los síntomas]</p>
+                <p>- Tiempo de evolución: [Indique desde cuándo]</p>
+              </div>
+            </details>
+            
+            <details>
+              <summary>Laboratorio y análisis clínicos</summary>
+              <div class="sugerencia-texto">
+                <p>Estimado departamento de Laboratorio,</p>
+                <p>Me comunico con ustedes para:</p>
+                <p>- [Solicitar información sobre análisis, resultados, etc.]</p>
+                <p>- Tipo de análisis requerido: [Especifique]</p>
+              </div>
+            </details>
+            
+            <details>
+              <summary>Quejas y sugerencias</summary>
+              <div class="sugerencia-texto">
+                <p>Estimado departamento de Quejas y Sugerencias,</p>
+                <p>Me dirijo a ustedes para:</p>
+                <p>- [Describa su queja o sugerencia de manera clara y objetiva]</p>
+                <p>- Fecha del incidente: [Indique la fecha]</p>
+              </div>
+            </details>
+          </div>
+
         <label for="consulta">Consulta:</label><br>
-        <textarea id="consulta" name="consulta" rows="5" cols="30" placeholder="Ingrese su condulta aquí" required></textarea><br><br>
+        <textarea id="consulta" name="consulta" rows="5" cols="30" placeholder="Ingrese su consulta aquí" required></textarea><br><br>
 
         <input type="submit" value="Enviar">
       </form>
