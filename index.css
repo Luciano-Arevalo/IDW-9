@@ -20,15 +20,22 @@ header {
   padding: 10px 20px;
 }
 
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
-  height: 70px;
-  margin-right: 15px;
+  height: 150px;
+  margin-right: 5px;
 }
 
 
+
 .logo h1 {
-  font-size: 1.8rem;
-  margin: 0;
+  font-size: 2rem;
+  margin-left: 10px;
 }
 
 nav {
@@ -163,7 +170,7 @@ footer {
 }
 
 
-/* 🏥 Obras Sociales */
+
 .obras-sociales {
   text-align: center;
   padding: 60px 20px;
