@@ -112,7 +112,7 @@ form textarea {
 }
 
 button[type="submit"] {
-  background-color: #cc3333;
+  background-color: #1abc9c;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -128,7 +128,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #a02a2a;
+  background-color: #16a085;
 }
 
 .required {
