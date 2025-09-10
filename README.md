@@ -24,4 +24,4 @@ Repositorio grupo 9
 Sitio web sencillo con estructura básica que incluye páginas de inicio, información institucional y contacto. Se utilizaron HTML y CSS para crear la estructura y el estilo.
 
 ## Enlace al repositorio:
-https://github.com/Luciano-Arevalo/IDW-9/tree/main/imagenes
+https://github.com/Luciano-Arevalo/IDW-9
