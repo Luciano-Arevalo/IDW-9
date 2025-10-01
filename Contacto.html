@@ -148,13 +148,20 @@
         </div>
 
         <script>
-          const btn = document.getElementByld("darkModeBtn");
-          btn.addEventListener("click", () => {
-            document.body.classList.toggle("bg-dark");
-            document.body.classList.toggle("text-white");
-            btn.classList.toggle("btn-light");
-            btn.classList.toggle("btn-secondary");
-          });
+          console.log('script cargado');
+          const btn = document.getElementById("darkModeBtn");
+          console.log('btn=', btn);
+          if (!btn) {
+            console.error('No se encontró #darkModeBtn');
+          } else {
+            btn.addEventListener("click", () => {
+              console.log('click detectado');
+              document.body.classList.toggle("bg-dark");
+              document.body.classList.toggle("text-white");
+              btn.classList.toggle("btn-light");
+              btn.classList.toggle("btn-secondary");
+            });
+          }
         </script>
       </body>
     </html>
