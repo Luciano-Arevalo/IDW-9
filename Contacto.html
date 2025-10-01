@@ -147,22 +147,19 @@
           <button id="darkModeBtn" class="btn btn-secondary">Modo oscuro</button>
         </div>
 
-        <script>
-          console.log('script cargado');
-          const btn = document.getElementById("darkModeBtn");
-          console.log('btn=', btn);
-          if (!btn) {
-            console.error('No se encontró #darkModeBtn');
-          } else {
-            btn.addEventListener("click", () => {
-              console.log('click detectado');
-              document.body.classList.toggle("bg-dark");
-              document.body.classList.toggle("text-white");
-              btn.classList.toggle("btn-light");
-              btn.classList.toggle("btn-secondary");
-            });
+       <script>
+        const btn = document.getElementById("darkModeBtn");
+         const oscuro = document.documentElement; 
+         btn.addEventListener("click", () => {
+          oscuro.classList.toggle("dark-mode"); 
+            
+           if (oscuro.classList.contains("dark-mode")) { 
+             btn.textContent = "Modo claro";
+           } else {
+             btn.textContent = "Modo oscuro";
           }
-        </script>
-      </body>
-    </html>
+         });
+       </script>
+  </body>
+</html>
 
