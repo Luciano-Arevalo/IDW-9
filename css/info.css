@@ -99,12 +99,34 @@ li {
 
 
 ul {
-  margin-left: 20px;
+  margin-left: 50px;
+  list-style-type: none;
 }
 
 ul li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
+ul li i {
+    margin-right: 10px;
+}
+
+.card, .list-group-item {
+    background-color: #6793df;
+}
+
+.card a {
+  color: #333;          
+  text-decoration: none;  
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card-img-top {
+  height: 200px;           
+  object-fit: cover;  }
+
 
 footer {
   background: #1e3c72;
