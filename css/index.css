@@ -1,3 +1,6 @@
+/* -------------------- */
+/* FUENTE Y BODY        */
+/* -------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 
 body {
@@ -14,73 +17,41 @@ body {
   padding: 0;
 }
 
-
-header {
-  background-color: #004080;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
+/* -------------------- */
+/* NAVBAR               */
+/* -------------------- */
+.navbar-brand img {
+  height: 100px; 
+  margin-right: 15px;
 }
-
-
-.logo {
-  display: flex;
-  align-items: center;
+.navbar-brand span {
+  font-size: 2rem; 
+  font-weight: 700;
 }
-
-.logo img {
-  height: 150px;
-  margin-right: 5px;
-}
-
-
-
-.logo h1 {
-  font-size: 2rem;
-  margin-left: 10px;
-}
-
-nav {
-  margin-left: auto;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
+.botoncito-link {
   font-weight: 600;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.botoncito-link:hover {
+  color: #66a3ff;
 }
 
-nav ul li a:hover,
-nav ul li a.activo {
-  background-color: #66a3ff;
-}
-
+/* -------------------- */
+/* PORTADA              */
+/* -------------------- */
 main .portada {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
   background: linear-gradient(135deg, rgba(102, 163, 255, 0.5), rgba(0, 64, 128, 0.8));
   color: white;
-  border-radius: 8px;
-  margin: 40px auto;
-  max-width: 700px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 main .portada h2 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 main .portada p {
@@ -88,139 +59,187 @@ main .portada p {
   line-height: 1.5;
 }
 
-
-.medicos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin: 50px auto;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
+/* -------------------- */
+/* TARJETAS / MÉDICOS   */
+/* -------------------- */
+.card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-
-.medico {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  text-align: center;
-  width: 220px;
-  transition: all 0.4s ease;
-  overflow: hidden;
-  position: relative;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.medico:hover {
-  transform: scale(1.07);
+.card:hover {
+  transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, 0.95);
 }
-
-.medico img {
-  width: 100%;
-  max-height: 270px;
+.card-img-top {
   object-fit: cover;
   object-position: top;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
   background-color: #f0f0f0;
-}
-
-.medico-content {
-  padding: 15px;
-}
-
-.medico h3 {
-  margin: 10px 0 5px;
-  font-size: 1.1rem;
-  color: #004080;
-}
-
-.medico p {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-}
-
-.medico .info-extra {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #555;
-}
-
-.medico:hover .info-extra {
-  opacity: 1;
-  max-height: 100px;
-}
-
-
-footer {
-  background-color: #004080;
-  color: white;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9rem;
-  margin-top: 60px;
-}
-
-
-
-.obras-sociales {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  margin: 60px auto;
-  max-width: 1000px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.obras-sociales h2 {
-  font-size: 2rem;
-  color: #004080;
-  margin-bottom: 30px;
-}
-
-.obras-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.obra {
-  background-color: white;
-  border-radius: 10px;
-  padding: 15px;
-  width: 150px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.obra img {
+  max-height: 270px;
   width: 100%;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 10px;
+  height: auto;
 }
-
-.obra p {
-  font-size: 0.95rem;
+.card-title {
   color: #004080;
-  margin: 0;
-  font-weight: 600;
+}
+.card-text {
+  color: #333;
+}
+.card-text.text-muted {
+  color: #555;
+  font-size: 0.85rem;
 }
 
-.obra:hover {
+/* -------------------- */
+/* OBRAS SOCIALES       */
+/* -------------------- */
+.card.obra {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.card.obra:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.card.obra img {
+  height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* -------------------- */
+/* FOOTER               */
+/* -------------------- */
+footer {
+  font-size: 0.9rem;
+}
+
+/* -------------------- */
+/* MEDIA QUERIES         */
+/* -------------------- */
+@media (max-width: 576px) {
+  .navbar-brand img {
+    height: 70px;
+  }
+  .navbar-brand span {
+    font-size: 1.5rem;
+  }
+  main .portada {
+    padding: 50px 15px;
+  }
+  main .portada h2 {
+    font-size: 2rem;
+  }
+}
+
+/* -------------------- */
+/* MODO OSCURO          */
+/* -------------------- */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  background-image: none;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode a,
+.dark-mode span,
+.dark-mode li {
+  color: #ffffff !important;
+}
+
+.dark-mode .navbar {
+  background-color: #1f1f1f !important;
+}
+
+.dark-mode .botoncito-link {
+  color: #ffffff !important;
+}
+
+.dark-mode .card {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.dark-mode .card-title {
+  color: #66a3ff;
+}
+
+.dark-mode .card-text.text-muted {
+  color: #cccccc;
+}
+
+.dark-mode footer {
+  background-color: #1f1f1f;
+}
+
+/* -------------------- */
+/* TITULOS Y LINKS RESALTADOS */
+/* -------------------- */
+
+/* Todos los títulos centrados */
+h2.text-center {
+  color: #ffffff; /* Blanco */
+  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6); /* Sombra medio celeste */
+}
+
+/* Obras Sociales */
+section.my-5.text-center > h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6);
+}
+
+/* Navbar links resaltados */
+.nav-link.botoncito-link {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(102, 163, 255, 0.5);
+  font-weight: 700;
+}
+
+.nav-link.botoncito-link:hover {
+  color: #66a3ff;
+  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.7);
+}
+
+/* Modo oscuro */
+.dark-mode .nav-link.botoncito-link {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(102, 163, 255, 0.5);
+}
+
+.dark-mode h2.text-center,
+.dark-mode section.my-5.text-center > h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6);
+}
+
+/* -------------------- */
+/* BOTÓN MODO OSCURO FLOTANTE */
+/* -------------------- */
+@media (max-width: 576px) {
+  .darkmode-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    border-radius: 12px; /* Bordes redondeados pero rectangular */
+    width: 90px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .darkmode-btn:hover {
+    transform: scale(1.05);
+  }
 }
