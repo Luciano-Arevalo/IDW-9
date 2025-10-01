@@ -203,3 +203,74 @@ footer {
   font-size: 0.9rem;
   margin-top: 60px;
 }
+/* Estilo Dark Mode */
+html.dark-mode body {
+  background-color: #121212;
+  color: #e0e0e0; 
+}
+
+html.dark-mode .bg-white,
+html.dark-mode .bg-light {
+  background-color: #2a2a2a !important; 
+}
+
+html.dark-mode header,
+html.dark-mode footer,
+html.dark-mode .bg-primary {
+  background-color: #1e1e1e;
+}
+
+
+html.dark-mode main {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+
+html.dark-mode label,
+html.dark-mode .form-label {
+  color: #f0f0f0;
+}
+
+html.dark-mode .text-primary {
+  color: #82baff;
+}
+
+html.dark-mode .form-control,
+html.dark-mode form input,
+html.dark-mode form select,
+html.dark-mode form textarea {
+  background-color: #3c3c3c;
+  color: #ffffff;
+  border-color: #555;
+}
+
+html.dark-mode ::placeholder {
+  color: #aaa;
+  opacity: 1; 
+}
+
+
+html.dark-mode details {
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-left: 4px solid #82baff;
+}
+
+html.dark-mode summary {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+html.dark-mode .sugerencia-texto {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
+}
+
+html.dark-mode .contact-info {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+
+html.dark-mode .contact-info h3 {
+    color: #82baff;
+}
