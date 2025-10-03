@@ -36,7 +36,7 @@ footer a:hover {
   opacity: 0.7;
 }
 
-/* Botón flotante de modo oscuro */
+
 .modo-oscuro-btn {
   position: fixed;
   bottom: 20px;
@@ -56,7 +56,7 @@ footer a:hover {
   background: #222;
 }
 
-/* ===== MODO OSCURO ===== */
+
 body.dark-mode {
   background-color: #121212;
   color: #e4e4e4;
