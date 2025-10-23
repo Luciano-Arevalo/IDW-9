@@ -19,7 +19,7 @@ html, body {
 }
 
 .layout-admin footer {
-  margin-top: auto;
+  margin-top: 6;
 }
 
 .layout-admin::before {
