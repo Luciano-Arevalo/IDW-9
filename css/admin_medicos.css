@@ -1,0 +1,160 @@
+/* ====== Administración de Médicos — estilos locales ====== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-admin {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f6f7fb;
+  position: relative;
+}
+
+.layout-admin main {
+  flex: 1;
+}
+
+.layout-admin footer {
+  margin-top: auto;
+}
+
+.layout-admin::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('../imagenes/bg-salud.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: .18;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.table thead th {
+  font-weight: 700;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(13,110,253,0.06);
+}
+
+#tablaMedicosBody td,
+#tablaMedicosBody th {
+  vertical-align: middle;
+}
+
+#tablaMedicosBody td:first-child img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.btn-accion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 0;
+  line-height: 1;
+}
+
+.btn-accion + .btn-accion {
+  margin-left: .35rem;
+}
+
+.dark-mode,
+.dark-mode .layout-admin {
+  background: #0f1522;
+}
+
+.dark-mode .table {
+  --bs-table-color: #e9eefc;
+  --bs-table-bg: #151c2c;
+  --bs-table-border-color: #27324b;
+  --bs-table-striped-bg: #1a2336;
+  --bs-table-hover-bg: #1f2a43;
+}
+
+.dark-mode .table-primary {
+  --bs-table-bg: #20325f;
+  --bs-table-color: #ffffff;
+}
+
+.dark-mode .navbar,
+.dark-mode footer {
+  background-color: #0d3a9a !important;
+}
+
+.dark-toggle {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #222;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.07);
+}
+
+.dark-mode .dark-toggle {
+  background: #1d2740;
+  color: #f0f4ff;
+}
+
+.layout-admin main > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .layout-admin main.container {
+    padding-top: 1rem;
+  }
+}
+
+
+
+/* === Botón flotante Sol/Luna === */
+.dark-toggle{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 1.25rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 5000;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s;
+}
+.dark-toggle:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+:root.dark-mode .dark-toggle{ background:#1f1f1f; color:#fff; border-color:#333; }
+
+/* Footer siempre abajo en páginas de contenido corto */
+.layout-page{ min-height:100svh; display:flex; flex-direction:column; }
+.layout-page main{ flex:1 0 auto; }
+.layout-page footer{ margin-top:auto; }

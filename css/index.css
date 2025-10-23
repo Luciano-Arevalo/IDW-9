@@ -1,4 +1,6 @@
-
+/* -------------------- */
+/* FUENTE Y BODY        */
+/* -------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 
 body {
@@ -15,41 +17,16 @@ body {
   padding: 0;
 }
 
-
-.logo {
-  display:flexbox;
-  align-items: center;
-}
-
-.logo img,img2 {
-  padding-left: 0;
-  height: 150px;
+/* -------------------- */
+/* NAVBAR               */
+/* -------------------- */
+.navbar-brand img {
+  height: 100px; 
   margin-right: 15px;
 }
-
-.logo h1 {
-  font-size: 1.8rem;
-  margin: 0;
-}
-
-nav {
-  margin-top: 10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-}
-
-
-nav ul li a:hover,
-nav ul li a.activo {
-  background-color: #66a3ff;
-  border-radius: 10%;
+.navbar-brand span {
+  font-size: 2rem; 
+  font-weight: 700;
 }
 .botoncito-link {
   font-weight: 600;
@@ -59,7 +36,9 @@ nav ul li a.activo {
   color: #66a3ff;
 }
 
-
+/* -------------------- */
+/* PORTADA              */
+/* -------------------- */
 main .portada {
   text-align: center;
   padding: 70px 20px;
@@ -80,6 +59,9 @@ main .portada p {
   line-height: 1.5;
 }
 
+/* -------------------- */
+/* TARJETAS / MÉDICOS   */
+/* -------------------- */
 .card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -108,7 +90,9 @@ main .portada p {
   font-size: 0.85rem;
 }
 
-
+/* -------------------- */
+/* OBRAS SOCIALES       */
+/* -------------------- */
 .card.obra {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
@@ -123,11 +107,16 @@ main .portada p {
   object-fit: contain;
 }
 
+/* -------------------- */
+/* FOOTER               */
+/* -------------------- */
 footer {
   font-size: 0.9rem;
 }
 
-
+/* -------------------- */
+/* MEDIA QUERIES         */
+/* -------------------- */
 @media (max-width: 576px) {
   .navbar-brand img {
     height: 70px;
@@ -143,6 +132,9 @@ footer {
   }
 }
 
+/* -------------------- */
+/* MODO OSCURO          */
+/* -------------------- */
 .dark-mode {
   background-color: #121212 !important;
   color: #ffffff !important;
@@ -187,20 +179,23 @@ footer {
   background-color: #1f1f1f;
 }
 
-
+/* -------------------- */
+/* TITULOS Y LINKS RESALTADOS */
+/* -------------------- */
 
 /* Todos los títulos centrados */
 h2.text-center {
-  color: #ffffff; 
-  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6); 
+  color: #ffffff; /* Blanco */
+  text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6); /* Sombra medio celeste */
 }
 
-
+/* Obras Sociales */
 section.my-5.text-center > h2 {
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6);
 }
 
+/* Navbar links resaltados */
 .nav-link.botoncito-link {
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(102, 163, 255, 0.5);
@@ -212,7 +207,7 @@ section.my-5.text-center > h2 {
   text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.7);
 }
 
-
+/* Modo oscuro */
 .dark-mode .nav-link.botoncito-link {
   color: #ffffff !important;
   text-shadow: 1px 1px 2px rgba(102, 163, 255, 0.5);
@@ -224,13 +219,16 @@ section.my-5.text-center > h2 {
   text-shadow: 2px 2px 4px rgba(102, 163, 255, 0.6);
 }
 
+/* -------------------- */
+/* BOTÓN MODO OSCURO FLOTANTE */
+/* -------------------- */
 @media (max-width: 576px) {
   .darkmode-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1050;
-    border-radius: 12px; 
+    border-radius: 12px; /* Bordes redondeados pero rectangular */
     width: 90px;
     height: 45px;
     display: flex;
@@ -245,3 +243,79 @@ section.my-5.text-center > h2 {
     transform: scale(1.05);
   }
 }
+
+
+
+/* === Botón flotante Sol/Luna (todas las páginas) === */
+.dark-toggle{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 1.25rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s;
+}
+.dark-toggle:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+:root.dark-mode .dark-toggle{ background:#1f1f1f; color:#fff; border-color:#333; }
+
+
+/* Bootstrap helpers in dark */
+:root.dark-mode .bg-light,
+:root.dark-mode .bg-white { background-color:#2a2a2a !important; color:#e0e0e0 !important; }
+:root.dark-mode .bg-primary,
+:root.dark-mode .navbar { background-color:#1e1e1e !important; }
+
+
+/* ====== Layout Inicio: footer siempre abajo ====== */
+.layout-home {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.layout-home main {
+  flex: 1 0 auto;
+}
+.layout-home footer {
+  margin-top: auto;
+}
+
+
+
+/* === Botón flotante Sol/Luna === */
+.dark-toggle{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 1.25rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 5000;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s;
+}
+.dark-toggle:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+:root.dark-mode .dark-toggle{ background:#1f1f1f; color:#fff; border-color:#333; }
+
+/* Footer siempre abajo en páginas de contenido corto */
+.layout-page{ min-height:100svh; display:flex; flex-direction:column; }
+.layout-page main{ flex:1 0 auto; }
+.layout-page footer{ margin-top:auto; }
