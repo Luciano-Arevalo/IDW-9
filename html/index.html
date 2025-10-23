@@ -16,6 +16,7 @@
     <!-- Normalize y CSS propio -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
     <link rel="stylesheet" href="../css/index.css" />
+    
   </head>
   <body class="bg-light">
 
@@ -150,6 +151,52 @@
         </div>
       </section>
 
+      <section class="my-5">
+  <h2 class="text-center mb-4">Administración de Médicos</h2>
+
+  <!-- Formulario -->
+  <form id="formMedico" class="row g-3 mb-4">
+    <input type="hidden" id="medicoId" />
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input type="text" id="nombre" class="form-control" required />
+    </div>
+    <div class="col-md-6">
+      <label for="especialidad" class="form-label">Especialidad</label>
+      <input type="text" id="especialidad" class="form-control" required />
+    </div>
+    <div class="col-12">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea id="descripcion" class="form-control" required></textarea>
+    </div>
+    <div class="col-12">
+      <label for="imagen" class="form-label">URL de la imagen</label>
+      <input type="url" id="imagen" class="form-control" required />
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-primary">Guardar Médico</button>
+    </div>
+  </form>
+
+  <!-- Tabla de Médicos -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-primary">
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Especialidad</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaMedicosBody">
+        <!-- JS llenará este contenido -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
     </main>
 
     <!-- Footer -->
@@ -167,5 +214,8 @@
         document.body.classList.toggle("dark-mode");
       });
     </script>
+    <!-- Scripts -->
+    <script src="../js/medicos.js"></script>
+
   </body>
 </html>
