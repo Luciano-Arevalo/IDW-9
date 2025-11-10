@@ -61,12 +61,14 @@ function agregarMedico(medico) {
   medicos.push(medico);
   guardarMedicos(medicos);
   renderizarTabla();
+  renderizarCatalogo();
 }
 
 function eliminarMedico(id) {
   const medicos = obtenerMedicos().filter(m => m.id !== id);
   guardarMedicos(medicos);
   renderizarTabla();
+  renderizarCatalogo();
 }
 
 function editarMedico(id, datosActualizados) {
@@ -78,11 +80,44 @@ function editarMedico(id, datosActualizados) {
   });
   guardarMedicos(medicos);
   renderizarTabla();
+  renderizarCatalogo();
+}
+
+//CATÁLOGO PÚBLICO
+function renderizarCatalogo() {
+  const contenedor = document.getElementById('catalogoMedicos');
+
+  if (!contenedor) {
+    return;
+  }
+
+  const medicos = obtenerMedicos();
+  contenedor.innerHTML = ''; // Limpio el catalógo antes de renderizar
+
+  medicos.forEach(medico => {
+    const col = document.createElement('div');
+    col.className = 'col'; 
+
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${medico.imagen}" class="card-img-top" alt="Foto de ${medico.nombre}">
+        <div class="card-body">
+          <h5 class="card-title">${medico.nombre}</h5>
+          <p class="card-text">${medico.especialidad}</p>
+          <p class="card-text text-muted small">${medico.descripcion}</p>
+        </div>
+      </div>
+    `;
+    contenedor.appendChild(col);
+  });
 }
 
 // RENDERIZADO
 function renderizarTabla() {
   const contenedor = document.getElementById('tablaMedicosBody');
+  if (!contenedor) {
+    return;
+  }
   const medicos = obtenerMedicos();
   contenedor.innerHTML = '';
 
@@ -135,11 +170,17 @@ function manejarEnvioFormulario(event) {
 }
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', () => {
+
   inicializarLocalStorage();
   renderizarTabla();
+  renderizarCatalogo(); // Renderizo el catálogo
 
-  document.getElementById('formMedico').addEventListener('submit', manejarEnvioFormulario);
-});
+  const formMedico = document.getElementById('formMedico');
+if (formMedico) {
+  formMedico.addEventListener('submit', manejarEnvioFormulario);
+}
+
+  //document.getElementById('formMedico').addEventListener('submit', manejarEnvioFormulario);
+
 
 
