@@ -8,7 +8,7 @@ const MEDICOS_INICIALES = [
     nombre: "Dr. Juan Pérez",
     especialidad: "Cardiología",
     valorConsulta: 20000.00,
-    obrasSociales: [1, 5, 12],
+    obrasSociales: [1, 4],
     email: "juan.perez@vientonorte.com",
     descripcion: "15 años de experiencia. Especialista en enfermedades cardiovasculares.",
     imagen: "../imagenes/medico1.png"
@@ -19,7 +19,7 @@ const MEDICOS_INICIALES = [
     nombre: "Dra. Ana Gómez",
     especialidad: "Pediatría",
     valorConsulta: 18000.00,
-    obrasSociales: [3, 5],
+    obrasSociales: [2, 3],
     email: "ana.gomez@vientonorte.com",
     descripcion: "10 años atendiendo a niños y adolescentes. Atención cálida y cercana.",
     imagen: "../imagenes/medico2.png"
@@ -30,7 +30,7 @@ const MEDICOS_INICIALES = [
     nombre: "Dr. Carlos Ruiz",
     especialidad: "Neurología",
     valorConsulta: 25000.00,
-    obrasSociales: [2, 7, 10],
+    obrasSociales: [2],
     email: "carlos.ruiz@vientonorte.com",
     descripcion: "Especialista en trastornos del sistema nervioso. Innovador en tratamientos.",
     imagen: "../imagenes/medico3.png"
@@ -41,7 +41,7 @@ const MEDICOS_INICIALES = [
     nombre: "Dra. María López",
     especialidad: "Dermatología",
     valorConsulta: 15000.00,
-    obrasSociales: [1, 9],
+    obrasSociales: [1],
     email: "maria.lopez@vientonorte.com",
     descripcion: "Cuida tu piel con tratamientos modernos y personalizados.",
     imagen: "../imagenes/medico4.png"
@@ -52,7 +52,7 @@ const MEDICOS_INICIALES = [
     nombre: "Dr. Pedro Martínez",
     especialidad: "Ortopedia",
     valorConsulta: 10000.00,
-    obrasSociales: [4, 6, 11],
+    obrasSociales: [1, 4],
     email: "pedro.martinez@vientonorte.com",
     descripcion: "Especialista en huesos y articulaciones. Enfoque integral en recuperación.",
     imagen: "../imagenes/medico5.png"
