@@ -115,8 +115,10 @@ function renderizarTabla() {
 function cargarFormularioEdicion(id) {
   const medico = obtenerMedicos().find(m => m.id === id);
   if (medico) {
+    document.getElementById('matricula').value = medico.matricula;
     document.getElementById('nombre').value = medico.nombre;
     document.getElementById('especialidad').value = medico.especialidad;
+    document.getElementById('email').value = medico.email;
     document.getElementById('descripcion').value = medico.descripcion;
     document.getElementById('imagen').value = medico.imagen;
     document.getElementById('medicoId').value = medico.id;
@@ -128,6 +130,8 @@ function manejarEnvioFormulario(event) {
 
   const id = document.getElementById('medicoId').value;
   const nuevoMedico = {
+    matricula: document.getElementById('matricula').value,
+    email: document.getElementById('email').value,
     nombre: document.getElementById('nombre').value,
     especialidad: document.getElementById('especialidad').value,
     descripcion: document.getElementById('descripcion').value,
