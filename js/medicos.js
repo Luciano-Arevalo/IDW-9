@@ -100,14 +100,15 @@ function renderizarTabla() {
     const fila = document.createElement('tr');
     fila.innerHTML = `
       <td><img src="${medico.imagen}" width="60" /></td>
-      <td>${medico.nombre}</td>
+      <td>${medico.id}</td>
+      <td>${medico.matricula}</td>  <td>${medico.nombre}</td>
       <td>${medico.especialidad}</td>
-      <td>${medico.descripcion}</td>
+      <td>${medico.email}</td>  <td>${medico.descripcion}</td>
       <td>
-        <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
-        <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
+          <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
+          <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
       </td>
-    `;
+`;
     contenedor.appendChild(fila);
   });
 }
