@@ -116,7 +116,21 @@
   <p class="mb-0">&copy; 2025 Clínica Viento Norte - Todos los derechos reservados.</p>
 </footer>
 
-        
+  <script>
+          if (!sessionStorage.getItem('token')) {
+              alert('Debe iniciar sesión para acceder a esta página');
+                window.location.href = 'login.html';
+          }
+        </script>
+        <script>
+          const logoutBtn = document.getElementById('logoutBtn');
+          if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    });
+  }
+</script>   
         
 
 <script>

@@ -6,6 +6,11 @@ body {
   color: #004080;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 header {
@@ -13,7 +18,9 @@ header {
   color: white;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 20px;
 }
 
 .logo {
@@ -22,7 +29,7 @@ header {
 }
 
 .logo img {
-  height: 50px;
+  height: 150px;
   margin-right: 15px;
 }
 
@@ -31,9 +38,8 @@ header {
   margin: 0;
 }
 
-/* Añadido para empujar el nav a la derecha */
 nav {
-  margin-left: auto;
+  margin-top: 10px;
 }
 
 nav ul {
@@ -41,7 +47,8 @@ nav ul {
   display: flex;
   gap: 20px;
   padding: 0;
-  margin: 0; /* evita margenes por defecto */
+  margin: 0;
+  flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -59,12 +66,12 @@ nav ul li a.activo {
 }
 
 main {
-  max-width: 800px;
+  max-width: 900px;
   margin: 40px auto;
   background: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 main h2 {
@@ -75,12 +82,12 @@ main h2 {
 }
 
 .form-group {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 form label {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -91,7 +98,6 @@ select,
 form textarea {
   width: 100%;
   padding: 14px 16px;
-  margin-bottom: 8px;
   border: 2px solid #66a3ff;
   border-radius: 6px;
   font-size: 1rem;
@@ -105,14 +111,12 @@ select:focus,
 form textarea:focus {
   border-color: #004080;
   outline: none;
-  
 }
 
 form textarea {
   resize: vertical;
   min-height: 120px;
 }
-
 
 button[type="submit"] {
   background-color: #1abc9c;
@@ -142,7 +146,7 @@ button[type="submit"]:hover {
   background-color: #e8f4ff;
   padding: 20px;
   border-radius: 8px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .contact-info h3 {
@@ -156,12 +160,13 @@ button[type="submit"]:hover {
 
 .form-row {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .form-row .form-group {
-  flex: 1;
+  flex: 1 1 45%;
 }
 
 .texto-predefinido {
@@ -172,7 +177,7 @@ details {
   background: #f0f7ff;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-left: 4px solid #004080;
 }
 
@@ -194,7 +199,7 @@ footer {
   background-color: #004080;
   color: white;
   text-align: center;
-  padding: 15px 10px;
+  padding: 20px 10px;
   font-size: 0.9rem;
   margin-top: 60px;
 }
