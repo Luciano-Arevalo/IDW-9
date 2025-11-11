@@ -4,36 +4,46 @@
 const MEDICOS_INICIALES = [
   {
     id: 1,
+    matricula: "M-23764",
     nombre: "Dr. Juan Pérez",
     especialidad: "Cardiología",
+    email: "juan.perez@vientonorte.com",
     descripcion: "15 años de experiencia. Especialista en enfermedades cardiovasculares.",
     imagen: "../imagenes/medico1.png"
   },
   {
     id: 2,
+    matricula: "M-93746",
     nombre: "Dra. Ana Gómez",
     especialidad: "Pediatría",
+    email: "ana.gomez@vientonorte.com",
     descripcion: "10 años atendiendo a niños y adolescentes. Atención cálida y cercana.",
     imagen: "../imagenes/medico2.png"
   },
   {
     id: 3,
+    matricula: "M-29753",
     nombre: "Dr. Carlos Ruiz",
     especialidad: "Neurología",
+    email: "carlos.ruiz@vientonorte.com",
     descripcion: "Especialista en trastornos del sistema nervioso. Innovador en tratamientos.",
     imagen: "../imagenes/medico3.png"
   },
   {
     id: 4,
+    matricula: "M-33468",
     nombre: "Dra. María López",
     especialidad: "Dermatología",
+    email: "maria.lopez@vientonorte.com",
     descripcion: "Cuida tu piel con tratamientos modernos y personalizados.",
     imagen: "../imagenes/medico4.png"
   },
   {
     id: 5,
+    matricula: "M-88745",
     nombre: "Dr. Pedro Martínez",
     especialidad: "Ortopedia",
+    email: "pedro.martinez@vientonorte.com",
     descripcion: "Especialista en huesos y articulaciones. Enfoque integral en recuperación.",
     imagen: "../imagenes/medico5.png"
   }
