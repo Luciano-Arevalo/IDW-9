@@ -7,6 +7,8 @@ const MEDICOS_INICIALES = [
     matricula: "M-23764",
     nombre: "Dr. Juan Pérez",
     especialidad: "Cardiología",
+    valorConsulta: 20000,
+    obrasSociales: [1, 5, 12],
     email: "juan.perez@vientonorte.com",
     descripcion: "15 años de experiencia. Especialista en enfermedades cardiovasculares.",
     imagen: "../imagenes/medico1.png"
@@ -16,6 +18,8 @@ const MEDICOS_INICIALES = [
     matricula: "M-93746",
     nombre: "Dra. Ana Gómez",
     especialidad: "Pediatría",
+    valorConsulta: 18000,
+    obrasSociales: [3, 5],
     email: "ana.gomez@vientonorte.com",
     descripcion: "10 años atendiendo a niños y adolescentes. Atención cálida y cercana.",
     imagen: "../imagenes/medico2.png"
@@ -25,6 +29,8 @@ const MEDICOS_INICIALES = [
     matricula: "M-29753",
     nombre: "Dr. Carlos Ruiz",
     especialidad: "Neurología",
+    valorConsulta: 25000,
+    obrasSociales: [2, 7, 10],
     email: "carlos.ruiz@vientonorte.com",
     descripcion: "Especialista en trastornos del sistema nervioso. Innovador en tratamientos.",
     imagen: "../imagenes/medico3.png"
@@ -34,6 +40,8 @@ const MEDICOS_INICIALES = [
     matricula: "M-33468",
     nombre: "Dra. María López",
     especialidad: "Dermatología",
+    valorConsulta: 15000,
+    obrasSociales: [1, 9],
     email: "maria.lopez@vientonorte.com",
     descripcion: "Cuida tu piel con tratamientos modernos y personalizados.",
     imagen: "../imagenes/medico4.png"
@@ -43,6 +51,8 @@ const MEDICOS_INICIALES = [
     matricula: "M-88745",
     nombre: "Dr. Pedro Martínez",
     especialidad: "Ortopedia",
+    valorConsulta: 10000,
+    obrasSociales: [4, 6, 11],
     email: "pedro.martinez@vientonorte.com",
     descripcion: "Especialista en huesos y articulaciones. Enfoque integral en recuperación.",
     imagen: "../imagenes/medico5.png"
@@ -101,9 +111,13 @@ function renderizarTabla() {
     fila.innerHTML = `
       <td><img src="${medico.imagen}" width="60" /></td>
       <td>${medico.id}</td>
-      <td>${medico.matricula}</td>  <td>${medico.nombre}</td>
+      <td>${medico.matricula}</td>  
+      <td>${medico.nombre}</td>
       <td>${medico.especialidad}</td>
-      <td>${medico.email}</td>  <td>${medico.descripcion}</td>
+      <td>$${medico.valorConsulta.toFixed(2)}</td> 
+      <td>${medico.obrasSociales.join(', ')}</td>
+      <td>${medico.email}</td>  
+      <td>${medico.descripcion}</td>
       <td>
           <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
           <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
@@ -120,6 +134,8 @@ function cargarFormularioEdicion(id) {
     document.getElementById('nombre').value = medico.nombre;
     document.getElementById('especialidad').value = medico.especialidad;
     document.getElementById('email').value = medico.email;
+    document.getElementById('valorConsulta').value = medico.valorConsulta;
+    document.getElementById('obrasSociales').value = medico.obrasSociales.join(', ');
     document.getElementById('descripcion').value = medico.descripcion;
     document.getElementById('imagen').value = medico.imagen;
     document.getElementById('medicoId').value = medico.id;
@@ -130,11 +146,17 @@ function manejarEnvioFormulario(event) {
   event.preventDefault();
 
   const id = document.getElementById('medicoId').value;
+  const obrasSocialesInput = document.getElementById('obrasSociales').value;
+  const obrasSocialesArray = obrasSocialesInput 
+      ? obrasSocialesInput.split(',').map(id => Number(id.trim())).filter(id => !isNaN(id) && id > 0)
+      : [];
   const nuevoMedico = {
     matricula: document.getElementById('matricula').value,
     email: document.getElementById('email').value,
     nombre: document.getElementById('nombre').value,
     especialidad: document.getElementById('especialidad').value,
+    valorConsulta: Number(document.getElementById('valorConsulta').value), 
+    obrasSociales: obrasSocialesArray,
     descripcion: document.getElementById('descripcion').value,
     imagen: document.getElementById('imagen').value
   };
