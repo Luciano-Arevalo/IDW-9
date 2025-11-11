@@ -184,5 +184,23 @@
 
 
 <button id="themeToggle" class="dark-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Modo oscuro/clarito">🌙</button>
+
+ <script src="../js/medicos.js"></script>
+    <script>
+      if (!sessionStorage.getItem('token')) {
+        alert('Debe iniciar sesión para acceder a esta página');
+          window.location.href = 'login.html';
+        }
+    </script>
+    <script>
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    });
+  }
+</script>
+
 </body>
 </html>
