@@ -31,26 +31,30 @@
 <body class="bg-light">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="../imagenes/logovientonorte.png" alt="Logo Clínica Viento Norte" width="50" class="me-2"> 
-        Clínica Viento Norte
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="institucional.html">Institucional</a></li>
-          <li class="nav-item"><a class="nav-link active" href="reservas.html">Reservas</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-          <li class="nav-item">
-            <button id="logoutBtn" class="btn btn-outline-light btn-sm ms-3">Cerrar sesión</button>
-          </li>
-        </ul>  
-      </div>
-    </div>
-  </nav>
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../imagenes/logovientonorte.png" alt="Logo Clínica Viento Norte" height="60" class="me-2"/>
+            <span>Clínica Viento Norte</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#botoncitoNav"
+            aria-controls="botoncitoNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse botoncito-collapse" id="botoncitoNav">
+                        <ul class="navbar-nav ms-auto botoncito-menu">
+              <li class="nav-item"><a class="nav-link botoncito-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link botoncito-link" href="institucional.html">Institucional</a></li>
+              <li class="nav-item"><a class="nav-link active" href="reservas.html">Reservas</a></li>
+              <li class="nav-item"><a class="nav-link botoncito-link" href="contacto.html">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link botoncito-link" href="usuarios.html">Usuarios</a></li>
+                            <li class="nav-item ms-lg-2"><a class="nav-link" href="admin_medicos.html" title="Administración de médicos"><i class="bi bi-gear"></i><span class="d-lg-none ms-1">Admin. Médicos</span></a></li>
+                            <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                <button id="logoutBtn" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
   <div class="container my-5">
     <h2 class="text-center mb-4"><i class="bi bi-calendar-event"></i> Reservas Médicas</h2>
