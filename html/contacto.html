@@ -31,11 +31,22 @@
             <li class="nav-item"><a class="nav-link active" href="institucional.html">Institucional</a></li>
             <li class="nav-item"><a class="nav-link active" href="reservas.html">Reservas</a></li>
             <li class="nav-item"><a class="nav-link botoncito-link" href="contacto.html">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link botoncito-link" href="usuarios.html">Usuarios</a></li>
-                        <li class="nav-item ms-lg-2"><a class="nav-link" href="admin_medicos.html" title="Administración de médicos"><i class="bi bi-gear"></i><span class="d-lg-none ms-1">Admin. Médicos</span></a></li>
-                        <li class="nav-item ms-3" id="logout-item" style="display: none;">
-              <button id="logoutBtn" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+            <li class="nav-item"><a class="nav-link botoncito-link" href="usuarios.html">Usuarios</a></li>
+              
+            <li class="nav-item ms-lg-2">
+              <a class="nav-link" href="admin_medicos.html" title="Administración de médicos">
+                <i class="bi bi-gear"></i>
+                <span class="d-lg-none ms-1">Admin. Médicos</span>
+              </a>
             </li>
+            
+            <li class="nav-item ms-3" id="logout-item" style="display: none;">
+                <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Cerrar sesión</button>
+            </li>
+            <li class="nav-item" id="login-btn-li">
+                <a href="./pages/login.html" class="btn btn-outline">Iniciar sesión</a>
+            </li>
+
           </ul>
         </div>
     </div>
@@ -134,13 +145,6 @@
               btn.textContent = "Modo oscuro";
             }
           });
-        </script>
-        <script>
-          /*
-          if (!sessionStorage.getItem('token')) {
-              alert('Debe iniciar sesión para acceder a esta página');
-                window.location.href = 'login.html';
-          }*/
         </script>
         <script>
           const logoutBtn = document.getElementById('logoutBtn');
