@@ -178,11 +178,14 @@ function manejarEnvioFormulario(event) {
 }
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', () => {
+
   inicializarLocalStorage();
   renderizarTabla();
+  renderizarCatalogo(); // Renderizo el catálogo
 
-  document.getElementById('formMedico').addEventListener('submit', manejarEnvioFormulario);
-});
+  const formMedico = document.getElementById('formMedico');
+if (formMedico) {
+  formMedico.addEventListener('submit', manejarEnvioFormulario);
+}
 
 
