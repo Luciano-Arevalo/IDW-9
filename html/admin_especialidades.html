@@ -25,11 +25,11 @@
           <li class="nav-item"><a class="nav-link botoncito-link" href="institucional.html">Institucional</a></li>
           <li class="nav-item"><a class="nav-link botoncito-link" href="reservas.html">Reservas</a></li>
           <li class="nav-item"><a class="nav-link botoncito-link" href="contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link active" href="usuarios.html">Usuarios</a></li>
-          <li class="nav-item"><a class="nav-link" href="admin_especialidades.html">Especialidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+          <li class="nav-item ms-lg-2"><a class="nav-link" href="admin_medicos.html" title="Administración de médicos"><i class="bi bi-gear"></i><span class="d-lg-none ms-1">Admin. Médicos</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="admin_especialidades.html">Especialidades</a></li>
           <li class="nav-item"><a class="nav-link" href="admin_horarios.html">Horarios</a></li>
           <li class="nav-item"><a class="nav-link" href="admin_obras_sociales.html">Obras Sociales</a></li>
-          <li class="nav-item ms-lg-2"><a class="nav-link" href="admin_medicos.html" title="Administración de médicos"><i class="bi bi-gear"></i><span class="d-lg-none ms-1">Admin. Médicos</span></a></li>
           <li class="nav-item ms-3" id="logout-item" style="display: none;">
             <button id="logoutBtn" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
           </li>
@@ -38,22 +38,39 @@
     </div>
   </nav>
 
-  <main class="container my-5">
-    <h2 class="text-center text-primary mb-4">Usuarios registrados</h2>
-    <div class="table-responsive">
-      <table class="table table-striped table-hover table-bordered" id="tablaUsuarios">         <thead class="table-primary">
-          <tr>
-            <th>ID</th>
-            <th>Foto</th>             <th>Nombre</th>
-            <th>Username</th>             <th>Email</th>
-            <th>Teléfono</th>
-          </tr>
-        </thead>
-        <tbody>
-          </tbody>
-      </table>
-    </div>
-  </main>
+        <main class="container my-5">
+            <section class="mb-4">
+                <h2 class="text-center text-primary">Administración de Especialidades</h2>
+                <p class="text-center text-muted">Alta, baja y modificación de especialidades.</p>
+            </section>
+        
+            <form id="formEspecialidad" class="row g-3 mb-4">
+        
+                <input type="hidden" id="especialidadId">
+        
+                <div class="col-md-9">
+                    <label for="nombreEspecialidad" class="form-label">Nombre de la Especialidad</label>
+                    <input type="text" id="nombreEspecialidad" class="form-control" required />
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </div>
+            </form>
+        
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEspecialidadesBody">
+                    </tbody>
+                </table>
+            </div>
+        </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -91,7 +108,7 @@
   })();
   </script>
 
-    <script src="../js/usuarios.js"></script>
+    <script src="../js/especialidades.js"></script>
 
   <button id="themeToggle" class="dark-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Modo oscuro/clarito">🌙</button>
 </body>

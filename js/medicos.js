@@ -105,6 +105,7 @@ function renderizarCatalogo() {
           <h5 class="card-title">${medico.nombre}</h5>
           <p class="card-text">${medico.especialidad}</p>
           <p class="card-text text-muted small">${medico.descripcion}</p>
+          <a href="formulario-reserva.html?medicoId=${medico.id}" class="btn btn-primary w-100">Reservar</a>
         </div>
       </div>
     `;

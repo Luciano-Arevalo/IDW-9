@@ -22,9 +22,14 @@ async function handleLogin(event) {
         
         sessionStorage.setItem('accessToken', data.accessToken);
         sessionStorage.setItem('usuario', data.username); 
+        sessionStorage.setItem('userRole', data.role);
 
         
-        window.location.href = 'admin_medicos.html';
+        if (data.role === 'admin') {
+          window.location.href = 'admin_medicos.html';
+        } else {
+          window.location.href = 'reservas.html'; // O a index.html
+        }
 
     } catch (err) {
       console.error('Login fallido:', err.message);
