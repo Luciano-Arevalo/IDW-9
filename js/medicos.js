@@ -113,21 +113,34 @@ function renderizarCatalogo() {
 }
 
 // RENDERIZADO
+// Archivo: medicos.js
+
 function renderizarTabla() {
-  const contenedor = document.getElementById('tablaMedicosBody');
-  if (!contenedor) {
-    return;
-  }
   const medicos = obtenerMedicos();
-  contenedor.innerHTML = '';
+  const contenedor = document.getElementById('tablaMedicosBody');
+  contenedor.innerHTML = ''; // Limpia la tabla
 
   medicos.forEach(medico => {
     const fila = document.createElement('tr');
+    
+    const obrasSocialesTexto = Array.isArray(medico.obrasSociales) 
+        ? medico.obrasSociales.join(', ')
+        : '';
+        
+    const valorConsultaFormateado = medico.valorConsulta ? 
+        new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(medico.valorConsulta) : 
+        'N/A';
+
     fila.innerHTML = `
-      <td><img src="${medico.imagen}" width="60" /></td>
+      <td><img src="${medico.imagen}" alt="${medico.nombre}"></td>
+      <td>${medico.id}</td>
+      <td>${medico.matricula || ''}</td>       
       <td>${medico.nombre}</td>
       <td>${medico.especialidad}</td>
-      <td>${medico.descripcion}</td>
+      <td>${medico.email || ''}</td>           
+      <td>${valorConsultaFormateado}</td>      
+      <td>${obrasSocialesTexto}</td>           
+      <td>${medico.descripcion.substring(0, 50)}...</td>
       <td>
         <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
