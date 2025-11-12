@@ -1,54 +1,40 @@
+async function handleLogin(event) {
+    event.preventDefault(); // Evitar que la página se recargue
 
-function inicializarLogin() {
-  const formLogin = document.getElementById('form-login');
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMsg = document.getElementById('login-error'); // ID de error
 
-  // Si no existe el formulario, no hace nada
-  if (!formLogin) {
-    return;
-  }
+    try {
+        const res = await fetch('https://dummyjson.com/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
 
-  formLogin.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que la página se recargue
+        const data = await res.json();
 
-    // 1. Obtenemos los valores de los campos
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+        
+        if (!res.ok || !data.accessToken) {
+            throw new Error(data.message || 'Credenciales incorrectas');
+        }
 
-    // 2. Usamos Fetch para enviar los datos a la API
-    fetch('https://dummyjson.com/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-
-      if (data.accessToken) {
-
-        console.log('Login exitoso:', data);
-
+        
         sessionStorage.setItem('accessToken', data.accessToken);
+        sessionStorage.setItem('usuario', data.username); 
 
-        document.getElementById('login-error').style.display = 'none';
+        
+        window.location.href = 'admin_medicos.html';
 
-        window.location.href = 'admin_medicos.html'; 
-
-      } else {
-        // Error: Datos incorrectos
-        console.error('Login fallido:', data.message);
-        document.getElementById('login-error').style.display = 'block';
-      }
-    })
-    .catch(err => {
-      // Error de red
-      console.error('Error de red:', err);
-      document.getElementById('login-error').innerText = 'Error de conexión. Intente más tarde.';
-      document.getElementById('login-error').style.display = 'block';
-    });
-  });
+    } catch (err) {
+      console.error('Login fallido:', err.message);
+      errorMsg.textContent = err.message;
+      errorMsg.style.display = 'block';
+    }
 }
 
-inicializarLogin();
+// (sea cual sea el ID) y asigna el evento
+const formLogin = document.getElementById('form-login') || document.getElementById('loginForm');
+if (formLogin) {
+    formLogin.addEventListener('submit', handleLogin);
+}
