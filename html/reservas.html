@@ -42,30 +42,47 @@
           </button>
           <div class="collapse navbar-collapse botoncito-collapse" id="botoncitoNav">
             <ul class="navbar-nav ms-auto botoncito-menu">
-              <li class="nav-item"><a class="nav-link botoncito-link" href="index.html">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link botoncito-link" href="institucional.html">Institucional</a></li>
-              <li class="nav-item"><a class="nav-link active" href="reservas.html">Reservas</a></li>
-              <li class="nav-item"><a class="nav-link botoncito-link" href="contacto.html">Contacto</a></li>
-              <li class="nav-item"><a class="nav-link botoncito-link" href="usuarios.html">Usuarios</a></li>
-              <li class="nav-item ms-lg-2"><a class="nav-link" href="admin_medicos.html" title="Administración de médicos"><i class="bi bi-gear"></i><span class="d-lg-none ms-1">Admin. Médicos</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="admin_especialidades.html">Especialidades</a></li>
-              <li class="nav-item"><a class="nav-link" href="admin_horarios.html">Horarios</a></li>
-              <li class="nav-item"><a class="nav-link" href="admin_obras_sociales.html">Obras Sociales</a></li>
-              <li class="nav-item ms-3" id="logout-item" style="display: none;">
-                <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Cerrar sesión</button>
-              </li>
-              <li class="nav-item" id="login-btn-li">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-              </li>
+  
+  <li class="nav-item"><a class="nav-link botoncito-link" href="index.html">Inicio</a></li>
+  <li class="nav-item"><a class="nav-link botoncito-link" href="institucional.html">Institucional</a></li>
+  <li class="nav-item"><a class="nav-link botoncito-link" href="contacto.html">Contacto</a></li>
 
-              </li>
-            </ul>
+  <li class="nav-item" id="reservas-link" style="display: none;">
+    <a class="nav-link botoncito-link" href="reservas.html">Mis Reservas</a>
+  </li>
+
+  <li class="nav-item dropdown" id="admin-dropdown-menu" style="display: none;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Administración
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAdmin">
+      <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+      <li><a class="dropdown-item" href="admin_medicos.html">Médicos</a></li>
+      <li><a class="dropdown-item" href="admin_especialidades.html">Especialidades</a></li>
+      <li><a class="dropdown-item" href="admin_horarios.html">Horarios</a></li>
+      <li><a class="dropdown-item" href="admin_obras_sociales.html">Obras Sociales</a></li>
+    </ul>
+  </li>
+  
+  <li class="nav-item ms-3" id="logout-item" style="display: none;">
+    <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Cerrar sesión</button>
+  </li>
+  <li class="nav-item ms-3" id="login-btn-li" style="display: none;">
+    <a href="login.html" class="btn btn-outline-light">Iniciar sesión</a>
+  </li>
+
+</ul>
           </div>
         </div>
       </nav>
 
   <div class="container my-5">
     <h2 class="text-center mb-4"><i class="bi bi-calendar-event"></i> Reservas Médicas</h2>
+    <div class="text-center mb-4">
+    <a href="index.html" class="btn btn-primary">
+      <i class="bi bi-plus-circle"></i> Ir al catálogo para Nueva Reserva
+    </a>
+  </div>
     <div class="table-responsive">
       <table class="table table-striped table-bordered align-middle shadow table-ecoverde">
         <thead>
@@ -73,14 +90,14 @@
             <th class="th-ecoverde"><i class="bi bi-person-fill"></i> Documento </th>
             <th class="th-ecoverde"><i class="bi bi-person-fill"></i> Apellido y Nombre </th>
             <th class="th-ecoverde"><i class="bi bi-house-door-fill"></i> Obra Social</th>
-            <th class="th-ecoverde"><i class="bi bi-house-door-fill"></i> Especialidad </th>
+            <th class="th-ecoverde"><i class="bi bi-person-badge"></i> Médico (Especialidad) </th>
             <th class="th-ecoverde"><i class="bi bi-calendar-event"></i> Turno </th>
             <th class="th-ecoverde"><i class="bi bi-cash-coin"></i> Valor Total</th>
             <th class="th-ecoverde"><i class="bi bi-gear"></i> Acciones</th>
           </tr>
         </thead>
         <tbody id="tabla-reservas">
-          <!-- Las filas de reservas ingresadas -->
+        
         </tbody>
       </table>
     </div>
@@ -94,40 +111,68 @@
   <button id="themeToggle" class="dark-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Modo oscuro/clarito">🌙</button>
 
   <script>
-    (function(){
-      const KEY = 'theme';
-      function apply(mode){
-        const isDark = (mode === 'dark');
-        document.documentElement.classList.toggle('dark-mode', isDark);
-        document.body.classList.toggle('dark-mode', isDark);
-        localStorage.setItem(KEY, mode);
-        const b = document.getElementById('themeToggle');
-        if(b) { 
-          b.textContent = isDark ? '☀️' : '🌙'; 
-          b.title = isDark ? 'Modo claro' : 'Modo oscuro'; 
-        }
-      }
-      const initial = localStorage.getItem(KEY) || 'light';
-      apply(initial);
-      window.toggleTheme = () => apply(document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark');
-    })();
+  
+  //MODO OSCURO
+  (function(){
+    const KEY='theme';
+    function apply(mode){
+      const isDark = (mode === 'dark');
+      document.documentElement.classList.toggle('dark-mode', isDark);
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem(KEY, mode);
+      const b=document.getElementById('themeToggle');
+      if(b){ b.textContent=isDark?'☀️':'🌙'; b.title=isDark?'Modo claro':'Modo oscuro'; }
+    }
+    const initial = localStorage.getItem(KEY) || 'light';
+    apply(initial);
+    window.toggleTheme = () => apply(document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark');
+  })();
 
-    (function() {
-      const token = sessionStorage.getItem('accessToken');
-      const logoutBtn = document.getElementById('logoutBtn');
 
-      if (token) {
-        if (logoutBtn) logoutBtn.style.display = 'block';
-      }
+  // Control Navbar
+  (function() {
+    
+    const token = sessionStorage.getItem('accessToken');
+    const role = sessionStorage.getItem('userRole');
 
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-          sessionStorage.clear();
-          window.location.href = 'login.html';
-        });
+    
+    const loginBtn = document.getElementById('login-btn-li');
+    const logoutBtn = document.getElementById('logout-item');
+    const reservasLink = document.getElementById('reservas-link');
+    
+    
+    const adminDropdown = document.getElementById('admin-dropdown-menu');
+
+    if (token) {
+      
+      if (loginBtn) loginBtn.style.display = 'none';
+      if (logoutBtn) logoutBtn.style.display = 'block';
+      if (reservasLink) reservasLink.style.display = 'list-item'; 
+
+      if (role === 'admin') {
+        
+        if (adminDropdown) adminDropdown.style.display = 'list-item';
       }
-    })();
-  </script>
+      
+    } else {
+    
+      if (loginBtn) loginBtn.style.display = 'block';
+      if (logoutBtn) logoutBtn.style.display = 'none';
+      if (reservasLink) reservasLink.style.display = 'none';
+      if (adminDropdown) adminDropdown.style.display = 'none';
+    }
+  })();
+
+  //LOGOUT 
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    });
+  }
+
+</script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

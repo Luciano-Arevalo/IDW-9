@@ -25,10 +25,14 @@ function guardarEspecialidades(especialidades) {
 
 function agregarEspecialidad(nombre) {
   const especialidades = obtenerEspecialidades();
-  const nuevaEspecialidad = { id: Date.now(), nombre: nombre };
+  const maxId = especialidades.reduce((max, esp) => (esp.id > max ? esp.id : max), 0);
+  const nuevaEspecialidad = { 
+    id: maxId + 1, 
+    nombre: nombre 
+  };
   especialidades.push(nuevaEspecialidad);
   guardarEspecialidades(especialidades);
-  renderizarTablaEspecialidades();
+  renderizarTablaEspecialidades(); 
 }
 
 function eliminarEspecialidad(id) {

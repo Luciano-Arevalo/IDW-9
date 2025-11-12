@@ -110,6 +110,26 @@ function renderizarTablaObrasSociales() {
   });
 }
 
+function renderizarCatalogoObrasSociales() {
+  const contenedor = document.getElementById('catalogoObrasSociales');
+  if (!contenedor) {
+    return;
+  }
+  const obras = obtenerObrasSociales();
+  contenedor.innerHTML = '';
+  obras.forEach(obra => {
+    const col = document.createElement('div');
+    col.className = 'col';
+  col.innerHTML = `
+      <div class="card shadow-sm p-2">
+        <img src="../imagenes/obra_generica.png" class="card-img-top" alt="${obra.nombre}" style="object-fit: contain; height: 80px;">
+        <p class="mt-2 fw-semibold text-primary">${obra.nombre}</p>
+      </div>
+    `;
+    contenedor.appendChild(col);
+  });
+}
+
 function manejarEnvioFormulario(event) {
   event.preventDefault();
   
@@ -131,6 +151,7 @@ function manejarEnvioFormulario(event) {
 }
 inicializarObrasSociales();
 renderizarTablaObrasSociales();
+renderizarCatalogoObrasSociales();
 
 const formObraSocial = document.getElementById('formObraSocial');
 if (formObraSocial) {

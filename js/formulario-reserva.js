@@ -1,5 +1,9 @@
 
 // Verificion usuario
+function obtenerReservas() {
+  return JSON.parse(localStorage.getItem('reservas')) || [];
+}
+
 const token = sessionStorage.getItem('accessToken');
 if (!token) {
   // Si no hay token, no puede reservar
@@ -16,21 +20,37 @@ function obtenerMedicoIdDeURL() {
 
 
 function popularDropdowns() {
-  //O.S.
+  // O.S.
   const obrasSelect = document.getElementById('obras-sociales-select');
-  const obras = obtenerObrasSociales(); 
-  obrasSelect.innerHTML = '<option value="">-- Seleccione Obra Social --</option>'; 
+  const obras = obtenerObrasSociales();
+  obrasSelect.innerHTML = '<option value="">-- Seleccione Obra Social --</option>';
   obras.forEach(obra => {
     obrasSelect.innerHTML += `<option value="${obra.id}">${obra.nombre}</option>`;
   });
 
-  //Horarios
-  const horariosSelect = document.getElementById('horarios-select');
-  const horarios = obtenerHorariosDisponibles(); 
-  horariosSelect.innerHTML = '<option value="">-- Seleccione Horario --</option>'; 
-  horarios.forEach(h => {
-    horariosSelect.innerHTML += `<option value="${h.id}">${h.hora}</option>`;
+ 
+ const horariosSelect = document.getElementById('horarios-select');
+
+  const medicoId = Number(document.getElementById('reserva-medico-id').value);
+  const horariosDisponibles = obtenerHorariosDisponibles();
+  const todasLasReservas = obtenerReservas();
+  const slotsOcupadosPorEsteMedico = todasLasReservas
+    .filter(r => r.medicoId === medicoId) 
+    .map(r => r.horarioId);               
+
+  const horariosLibresParaEsteMedico = horariosDisponibles.filter(h => {
+    return !slotsOcupadosPorEsteMedico.includes(h.id);
   });
+
+  horariosSelect.innerHTML = '<option value="">-- Seleccione Horario --</option>';
+  if (horariosLibresParaEsteMedico.length === 0) {
+    horariosSelect.innerHTML = '<option value="">-- No hay turnos disponibles para este médico --</option>';
+    horariosSelect.disabled = true;
+  } else {
+    horariosLibresParaEsteMedico.forEach(h => {
+      horariosSelect.innerHTML += `<option value="${h.id}">${h.hora}</option>`;
+    });
+  }
 }
 
 
