@@ -53,97 +53,45 @@
   </nav>
 
   <!-- Contenido principal -->
-  <main class="container py-4">
-    <h1 class="mb-4">Administración de Médicos</h1>
-
-    <div class="row">
-        <div class="col-12 mb-4"> 
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h5>Crear/Editar Médico</h5>
-                </div>
-                <div class="card-body">
-                    </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow">
-                </div>
-        </div>
-    </div>
+  <main class="container my-5">
+    <section class="mb-4">
+      <h2 class="text-center text-primary">Administración de Médicos</h2>
+      <p class="text-center text-muted">Alta, baja y modificación de profesionales.</p>
+    </section>
     <!-- Formulario -->
-  <div class="card-body">
-   <form id="formMedico">
-    <input type="hidden" id="medicoId" name="medicoId">
-    
-    <div class="row">
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="matricula" class="form-label">Matrícula</label>
-                <input type="text" class="form-control" id="matricula" required>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre Completo</label>
-                <input type="text" class="form-control" id="nombre" required>
-            </div>
-        </div>
-    </div> <div class="row">
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="especialidad" class="form-label">Especialidad</label>
-                <input type="text" class="form-control" id="especialidad" required>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-        </div>
-    </div> <div class="row">
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="valorConsulta" class="form-label">Valor de Consulta ($)</label>
-                <input type="number" step="0.01" class="form-control" id="valorConsulta" required>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="obrasSociales" class="form-label">IDs Obras Sociales (separar por comas)</label>
-                <input type="text" class="form-control" id="obrasSociales" placeholder="Ej: 1, 2, 3">
-            </div>
-        </div>
-    </div> <div class="mb-3">
-        <label for="descripcion" class="form-label">Descripción</label>
-        <textarea class="form-control" id="descripcion" rows="3"></textarea>
+  <form id="formMedico" class="row g-3 mb-4">
+    <input type="hidden" id="medicoId" />
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input type="text" id="nombre" class="form-control" required />
     </div>
-    
-    <div class="mb-3">
-        <label for="imagen" class="form-label">URL Imagen (opcional)</label>
-        <input type="text" class="form-control" id="imagen">
+    <div class="col-md-6">
+      <label for="especialidad" class="form-label">Especialidad</label>
+      <input type="text" id="especialidad" class="form-control" required />
     </div>
+    <div class="col-12">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea id="descripcion" class="form-control" required></textarea>
+    </div>
+    <div class="col-12">
+      <label for="imagen" class="form-label">URL de la imagen</label>
+      <input type="url" id="imagen" class="form-control" required />
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-primary">Guardar Médico</button>
+    </div>
+  </form>
 
-    <button type="submit" class="btn btn-primary">Guardar Médico</button>
-</form>
     <!-- Tabla de Médicos -->
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
         <thead class="table-primary">
           <tr>
-              <th>ID</th>
-              <th>Matrícula</th>       
-              <th>Nombre</th>
-              <th>Especialidad</th>
-              <th>Email</th>           
-              <th>Valor Consulta</th>  
-              <th>Obras Sociales</th>  
-              <th>Descripción</th>
-              <th>Acciones</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody id="tablaMedicosBody">

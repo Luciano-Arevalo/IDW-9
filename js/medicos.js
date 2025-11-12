@@ -153,14 +153,8 @@ function renderizarTabla() {
 function cargarFormularioEdicion(id) {
   const medico = obtenerMedicos().find(m => m.id === id);
   if (medico) {
-    document.getElementById('matricula').value = medico.matricula || '';
     document.getElementById('nombre').value = medico.nombre;
     document.getElementById('especialidad').value = medico.especialidad;
-    document.getElementById('email').value = medico.email || '';
-    document.getElementById('valorConsulta').value = medico.valorConsulta || 0;
-    document.getElementById('obrasSociales').value = Array.isArray(medico.obrasSociales) 
-        ? medico.obrasSociales.join(', ')
-        : '';
     document.getElementById('descripcion').value = medico.descripcion;
     document.getElementById('imagen').value = medico.imagen;
     document.getElementById('medicoId').value = medico.id;
@@ -171,17 +165,9 @@ function manejarEnvioFormulario(event) {
   event.preventDefault();
 
   const id = document.getElementById('medicoId').value;
-  const obrasSocialesInput = document.getElementById('obrasSociales').value;
-  const obrasSocialesArray = obrasSocialesInput 
-      ? obrasSocialesInput.split(',').map(id => Number(id.trim())).filter(id => !isNaN(id) && id > 0)
-      : [];
   const nuevoMedico = {
-    matricula: document.getElementById('matricula').value,
     nombre: document.getElementById('nombre').value,
     especialidad: document.getElementById('especialidad').value,
-    email: document.getElementById('email').value,
-    valorConsulta: Number(document.getElementById('valorConsulta').value),
-    obrasSociales: obrasSocialesArray,
     descripcion: document.getElementById('descripcion').value,
     imagen: document.getElementById('imagen').value
   };
