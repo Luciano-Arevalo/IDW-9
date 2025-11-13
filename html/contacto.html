@@ -164,36 +164,6 @@
       adminDropdown.style.display = 'none';
     }
 
-<<<<<<< HEAD
-        <footer class="bg-primary text-white text-center py-3 mt-5">
-  <p class="mb-0">&copy; 2025 Clínica Viento Norte - Todos los derechos reservados.</p>
-</footer>
-
-        
-<script>
-// Toggle persistente y único
-(function(){
-  const KEY='theme';
-  function apply(mode){
-    const isDark = (mode === 'dark');
-    document.documentElement.classList.toggle('dark-mode', isDark);
-    document.body.classList.toggle('dark-mode', isDark);
-    localStorage.setItem(KEY, mode);
-    const b=document.getElementById('themeToggle');
-    if(b){ b.textContent=isDark?'☀️':'🌙'; b.title=isDark?'Modo claro':'Modo oscuro'; }
-  }
-  const initial = localStorage.getItem(KEY) || 'light';
-  apply(initial);
-  window.toggleTheme = () => apply(document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark');
-})();
-</script>
-
-
-
-<button id="themeToggle" class="dark-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Modo oscuro/clarito">🌙</button>
-</body>
-</html>
-=======
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
@@ -205,4 +175,3 @@
 </body>
 </html>
 
->>>>>>> develop
