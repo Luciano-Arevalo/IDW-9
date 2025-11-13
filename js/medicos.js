@@ -53,7 +53,7 @@ const MEDICOS_INICIALES = [
     especialidad: "Ortopedia",
     valorConsulta: 10000.00,
     obrasSociales: [1, 2, 3, 4],
-    email: "Spedro.martinez@vientonorte.com",
+    email: "pedro.martinez@vientonorte.com",
     descripcion: "Especialista en huesos y articulaciones. Enfoque integral en recuperación.",
     imagen: "../imagenes/medico5.png"
   }
