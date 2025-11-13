@@ -190,3 +190,63 @@ html, body {
     width: 80px;
     max-width: 80px;
 }
+
+.table {
+    table-layout: fixed; 
+    width: 100%; 
+}
+
+.table thead th,
+#tablaMedicosBody tr td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.table thead th:nth-child(1),
+#tablaMedicosBody tr td:nth-child(1) {
+    width: 60px;
+    max-width: 60px;
+}
+
+#tablaMedicosBody td:first-child img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.table thead th:nth-child(2), 
+#tablaMedicosBody tr td:nth-child(2),
+.table thead th:nth-child(3),
+#tablaMedicosBody tr td:nth-child(3) {
+    width: 80px;
+    max-width: 80px;
+}
+
+.table thead th:nth-child(7),
+#tablaMedicosBody tr td:nth-child(7) {
+    width: 100px;
+    max-width: 100px;
+}
+
+.table thead th:nth-child(8),
+#tablaMedicosBody tr td:nth-child(8) {
+    width: 120px;
+    max-width: 120px;
+    white-space: nowrap; 
+}
+
+.table thead th:nth-child(9),
+#tablaMedicosBody tr td:nth-child(9) {
+    width: 200px;
+    max-width: 200px;
+    white-space: normal; 
+}
+
+.table thead th:nth-child(10),
+#tablaMedicosBody tr td:nth-child(10) {
+    width: 85px;
+    max-width: 85px;
+}
