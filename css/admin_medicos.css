@@ -55,6 +55,19 @@ html, body {
   display: block;
 }
 
+.table thead th {
+    border-right: 1px solid #dee2e6; 
+}
+
+#tablaMedicosBody tr td {
+    border-right: 1px solid #dee2e6;
+}
+
+.table thead th:last-child,
+#tablaMedicosBody tr td:last-child {
+    border-right: none;
+}
+
 .btn-accion {
   display: inline-flex;
   align-items: center;
@@ -158,3 +171,10 @@ html, body {
 .layout-page{ min-height:100svh; display:flex; flex-direction:column; }
 .layout-page main{ flex:1 0 auto; }
 .layout-page footer{ margin-top:auto; }
+
+.table thead th:nth-child(3),
+#tablaHorariosBody tr td:nth-child(3) {
+    width: 250px;
+    max-width: 250px;
+    white-space: normal; 
+}
