@@ -172,7 +172,7 @@ function renderizarTabla() {
       <td>${medico.matricula || 'N/A'}</td>      <td>${medico.nombre}</td>              
       <td>${medico.especialidad}</td>        
       <td>${medico.email || 'N/A'}</td>
-      <td>${valorConsultaFormateado}</td>      <td>${obrasSocialesTexto}</td>           <td>${medico.descripcion.substring(0, 50)}...</td> 
+      <td>${valorConsultaFormateado}</td>      <td>${obrasSocialesTexto}</td>           <td>${medico.descripcion ? medico.descripcion.substring(0, 50) + '...' : ''}</td> 
       <td>
         <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>

@@ -158,3 +158,35 @@ html, body {
 .layout-page{ min-height:100svh; display:flex; flex-direction:column; }
 .layout-page main{ flex:1 0 auto; }
 .layout-page footer{ margin-top:auto; }
+
+.table-responsive {
+    overflow-x: auto; 
+}
+
+#tablaMedicosBody td,
+.table thead th {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table thead th:nth-child(9), 
+#tablaMedicosBody tr td:nth-child(9) {
+    width: 250px;
+    max-width: 250px;
+    white-space: normal;
+}
+
+.table thead th:nth-child(8), 
+#tablaMedicosBody tr td:nth-child(8) {
+    width: 100px; 
+    max-width: 100px;
+}
+
+
+.table thead th:nth-child(2), 
+.table thead th:nth-child(3), 
+.table thead th:nth-child(7) {
+    width: 80px;
+    max-width: 80px;
+}
