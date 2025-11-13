@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 
 body {
-  font-family: 'Poppins','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f7fa;
   color: #004080;
   margin: 0;
@@ -24,7 +24,7 @@ header {
 }
 
 .logo {
-  display:flexbox;
+  display: flex;
   align-items: center;
 }
 
@@ -52,17 +52,19 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav ul li a:hover,
 nav ul li a.activo {
   background-color: #66a3ff;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
 }
 
 main {
@@ -128,7 +130,6 @@ button[type="submit"] {
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: block;
-  margin: 6;
   font-size: 1.1rem;
   width: 100%;
   margin-top: 20px;
@@ -203,15 +204,15 @@ footer {
   font-size: 0.9rem;
   margin-top: 60px;
 }
-/* Estilo Dark Mode */
+
 html.dark-mode body {
   background-color: #121212;
-  color: #e0e0e0; 
+  color: #e0e0e0;
 }
 
 html.dark-mode .bg-white,
 html.dark-mode .bg-light {
-  background-color: #2a2a2a !important; 
+  background-color: #2a2a2a !important;
 }
 
 html.dark-mode header,
@@ -219,7 +220,6 @@ html.dark-mode footer,
 html.dark-mode .bg-primary {
   background-color: #1e1e1e;
 }
-
 
 html.dark-mode main {
   background: #2a2a2a;
@@ -246,69 +246,342 @@ html.dark-mode form textarea {
 
 html.dark-mode ::placeholder {
   color: #aaa;
-  opacity: 1; 
+  opacity: 1;
 }
 
-
 html.dark-mode details {
-    background: #3a3a3a;
-    border: 1px solid #555;
-    border-left: 4px solid #82baff;
+  background: #3a3a3a;
+  border: 1px solid #555;
+  border-left: 4px solid #82baff;
 }
 
 html.dark-mode summary {
-    color: #e0e0e0;
-    font-weight: bold;
+  color: #e0e0e0;
+  font-weight: bold;
 }
 
 html.dark-mode .sugerencia-texto {
-    background: #2c2c2c;
-    border-top: 1px solid #444;
+  background: #2c2c2c;
+  border-top: 1px solid #444;
 }
 
 html.dark-mode .contact-info {
-    background-color: #1e1e1e;
-    border: 1px solid #444;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
 }
 
 html.dark-mode .contact-info h3 {
-    color: #82baff;
+  color: #82baff;
 }
 
-/* ===== Layout base: footer siempre abajo ===== */
 .layout-page {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
-.layout-page main { flex: 1 0 auto; }
-.layout-page footer { margin-top: auto; }
 
-/* === Botón flotante Sol/Luna (todas las páginas) === */
-.dark-toggle{
+.layout-page main {
+  flex: 1 0 auto;
+}
+
+.layout-page footer {
+  margin-top: auto;
+}
+
+.dark-toggle {
   position: fixed;
   right: 18px;
   bottom: 18px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.25rem;
   background: #ffffff;
   color: #1a1a1a;
-  border: 1px solid rgba(0,0,0,0.15);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 2000;
-  transition: transform .15s ease, box-shadow .2s ease, background .2s;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s;
 }
-.dark-toggle:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
-:root.dark-mode .dark-toggle{ background:#1f1f1f; color:#fff; border-color:#333; }
 
-/* Helpers en dark para Bootstrap */
+.dark-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+:root.dark-mode .dark-toggle {
+  background: #1f1f1f;
+  color: #fff;
+  border-color: #333;
+}
+
 :root.dark-mode .bg-light,
-:root.dark-mode .bg-white { background-color:#2a2a2a !important; color:#e0e0e0 !important; }
+:root.dark-mode .bg-white {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+}
+
 :root.dark-mode .bg-primary,
-:root.dark-mode .navbar { background-color:#1e1e1e !important; }
+:root.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
+
+main h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+select,
+form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #66a3ff;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+select:focus,
+form textarea:focus {
+  border-color: #004080;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button[type="submit"] {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #16a085;
+}
+
+.required {
+  color: #e53935;
+}
+
+.contact-info {
+  background-color: #e8f4ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.contact-info h3 {
+  color: #004080;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1 1 45%;
+}
+
+.texto-predefinido {
+  margin-top: 20px;
+}
+
+details {
+  background: #f0f7ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #004080;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  color: #004080;
+}
+
+.sugerencia-texto {
+  margin-top: 10px;
+  padding: 10px;
+  background: #e0f0ff;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+html.dark-mode body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+html.dark-mode .bg-white,
+html.dark-mode .bg-light {
+  background-color: #2a2a2a !important;
+}
+
+html.dark-mode header,
+html.dark-mode footer,
+html.dark-mode .bg-primary {
+  background-color: #1e1e1e;
+}
+
+html.dark-mode main {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+
+html.dark-mode label,
+html.dark-mode .form-label {
+  color: #f0f0f0;
+}
+
+html.dark-mode .text-primary {
+  color: #82baff;
+}
+
+html.dark-mode .form-control,
+html.dark-mode form input,
+html.dark-mode form select,
+html.dark-mode form textarea {
+  background-color: #3c3c3c;
+  color: #ffffff;
+  border-color: #555;
+}
+
+html.dark-mode ::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+html.dark-mode details {
+  background: #3a3a3a;
+  border: 1px solid #555;
+  border-left: 4px solid #82baff;
+}
+
+html.dark-mode summary {
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+html.dark-mode .sugerencia-texto {
+  background: #2c2c2c;
+  border-top: 1px solid #444;
+}
+
+html.dark-mode .contact-info {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+html.dark-mode .contact-info h3 {
+  color: #82baff;
+}
+
+.layout-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-page main {
+  flex: 1 0 auto;
+}
+
+.layout-page footer {
+  margin-top: auto;
+}
+
+.dark-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s;
+}
+
+.dark-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+:root.dark-mode .dark-toggle {
+  background: #1f1f1f;
+  color: #fff;
+  border-color: #333;
+}
+
+:root.dark-mode .bg-light,
+:root.dark-mode .bg-white {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+}
+
+:root.dark-mode .bg-primary,
+:root.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
