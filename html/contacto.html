@@ -59,7 +59,9 @@
   <main class="container my-5">
     <section class="mb-5">
       <h2 class="text-center text-primary mb-4">Formulario de contacto</h2>
-      <form class="p-4 border rounded shadow-sm bg-white">
+
+      <!-- ✅ Se agregó el id="formContacto" al formulario -->
+      <form id="formContacto" class="p-4 border rounded shadow-sm bg-white">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre completo</label>
           <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
@@ -87,6 +89,7 @@
             <option value="quejas">Quejas y sugerencias</option>
           </select>
         </div>
+
         <div class="texto-predefinido mb-4">
           <h3 class="h5 text-primary">Textos sugeridos según el área:</h3>
           <details>
@@ -106,11 +109,15 @@
             </div>
           </details>
         </div>
+
         <div class="mb-3">
           <label for="consulta" class="form-label">Consulta</label>
           <textarea id="consulta" class="form-control" rows="5" placeholder="Ingrese su consulta aquí" required></textarea>
         </div>
+
+        <!-- Botones -->
         <button type="submit" class="btn btn-success w-100">Enviar</button>
+        <button type="button" id="borrar" class="btn btn-danger w-100 mt-2">Borrar datos</button>
       </form>
     </section>
 
@@ -172,6 +179,7 @@
       });
     }
   </script>
+
+  <script src="../js/contacto.js"></script>
 </body>
 </html>
-
