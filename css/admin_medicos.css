@@ -73,8 +73,13 @@ html, body {
 #tablaMedicosBody tr td:nth-child(9) {
     white-space: normal !important; 
     
-    width: 250px; 
-    max-width: 250px;
+    width: 350px; 
+    max-width: 350px;
+}
+
+.table thead th:nth-child(3), #tablaMedicosBody tr td:nth-child(3) { 
+    width: 80px; 
+    max-width: 80px; 
 }
 
 .table thead th,
