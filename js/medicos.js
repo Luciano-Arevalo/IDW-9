@@ -166,13 +166,13 @@ function renderizarTabla() {
         : 'Ninguna';
 
     fila.innerHTML = `
-      <td><img src="${medico.imagen}" alt="${medico.nombre}"></td>
+      <td><img src="${medico.imagen}" alt="${medico.nombre}"class="tabla-img"></td>
       <td>${medico.id}</td>                   
       <td>${medico.matricula || 'N/A'}</td>      <td>${medico.nombre}</td>              
       <td>${medico.especialidad}</td>        
       <td>${medico.email || 'N/A'}</td>
       <td>${valorConsultaFormateado}</td>      <td>${obrasSocialesTexto}</td>           <td>${medico.descripcion}</td>
-      <td>
+      <td> 
         <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
       </td>
@@ -180,6 +180,7 @@ function renderizarTabla() {
     contenedor.appendChild(fila);
   });
 }
+
 
 function cargarFormularioEdicion(id) {
   const medico = obtenerMedicos().find(m => m.id === id);
@@ -239,4 +240,6 @@ if (formMedico) {
   formMedico.addEventListener('submit', manejarEnvioFormulario);
 }
 
-  //document.getElementById('formMedico').addEventListener('submit', manejarEnvioFormulario);
+
+  /*document.getElementById('formMedico').addEventListener('submit', manejarEnvioFormulario);*/
+
