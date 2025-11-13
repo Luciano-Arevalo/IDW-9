@@ -41,11 +41,11 @@ export { obtenerHorariosDisponibles, agregarHorario, eliminarHorario };*/
 
 
 const HORARIOS_INICIALES = [
-  { id: 1, hora: '10:00 AM', disponible: true },
-  { id: 2, hora: '11:00 AM', disponible: true },
-  { id: 3, hora: '12:00 PM', disponible: true },
-  { id: 4, hora: '01:00 PM', disponible: false }, 
-  { id: 5, hora: '02:00 PM', disponible: true }
+  { id: 1, hora: '10:00 AM', disponible: true, especialidades: 'Cardiología, Pediatría' },
+  { id: 2, hora: '11:00 AM', disponible: true, especialidades: 'Dermatología' },
+  { id: 3, hora: '12:00 PM', disponible: false, especialidades: 'Traumatología' },
+  { id: 4, hora: '01:00 PM', disponible: true, especialidades: '' },
+  { id: 5, hora: '02:00 PM', disponible: true, especialidades: 'General' }
 ];
 
 const STORAGE_KEY_HORARIOS = 'horarios';
@@ -104,9 +104,10 @@ function editarHorario(id, hora, disponible) {
 function cargarFormularioEdicion(id) {
   const horario = obtenerHorarios().find(h => h.id === id);
   if (horario) {
-    document.getElementById('horarioId').value = horario.id;
     document.getElementById('horarioHora').value = horario.hora;
     document.getElementById('horarioDisponible').checked = horario.disponible;
+    document.getElementById('horarioEspecialidades').value = horario.especialidades || ''; 
+    document.getElementById('horarioId').value = horario.id;
   }
 }
 function renderizarTablaHorarios() {
@@ -117,11 +118,12 @@ function renderizarTablaHorarios() {
   contenedor.innerHTML = ''; 
 
   horarios.forEach(h => {
+    const especialidadesTexto = h.especialidades || 'Todas las especialidades'; 
     const fila = document.createElement('tr');
     fila.innerHTML = `
       <td>${h.id}</td>
       <td>${h.hora}</td>
-      <td>${h.disponible ? 'Sí' : 'No'}</td> 
+      <td>${especialidadesTexto}</td> <td>${h.disponible ? 'Sí' : 'No'}</td> 
       <td>
         <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${h.id})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="eliminarHorario(${h.id})">🗑️</button>
@@ -139,18 +141,29 @@ function manejarEnvioFormulario(event) {
   const id = document.getElementById('horarioId').value;
   const hora = document.getElementById('horarioHora').value.trim();
   const disponible = document.getElementById('horarioDisponible').checked; 
+  const especialidades = document.getElementById('horarioEspecialidades').value.trim(); 
 
   if (hora) {
+    
+    const horarioData = {
+        hora: hora,
+        disponible: disponible,
+        especialidades: especialidades 
+    };
+
     if (id) {
-      editarHorario(Number(id), hora, disponible);
+      editarHorario(Number(id), horarioData); 
     } else {
-      agregarHorario(hora, disponible);
+      agregarHorario(horarioData); 
     }
+    
     document.getElementById('formHorario').reset();
     document.getElementById('horarioId').value = '';
     
-  } else {
-    alert("Por favor, ingrese una hora.");
+    const modalElement = document.getElementById('modalHorario');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+
   }
 }
 
