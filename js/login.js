@@ -1,36 +1,56 @@
 async function handleLogin(event) {
-    event.preventDefault(); // Evitar que la página se recargue
-
+    event.preventDefault(); 
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
-    const errorMsg = document.getElementById('login-error'); // ID de error
+    const errorMsg = document.getElementById('login-error'); 
 
     try {
-        const res = await fetch('https://dummyjson.com/auth/login', {
+        
+        const resLogin = await fetch('https://dummyjson.com/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
         });
 
-        const data = await res.json();
+        const dataLogin = await resLogin.json();
 
-        
-        if (!res.ok || !data.accessToken) {
-            throw new Error(data.message || 'Credenciales incorrectas');
+        if (!resLogin.ok || !dataLogin.accessToken) {
+            throw new Error(dataLogin.message || 'Credenciales incorrectas');
         }
 
+  
+        const token = dataLogin.accessToken;
+        const userId = dataLogin.id;
+        const userUsername = dataLogin.username;
+
+
+        const resUser = await fetch(`https://dummyjson.com/users/${userId}`);
         
-        sessionStorage.setItem('accessToken', data.accessToken);
-        sessionStorage.setItem('usuario', data.username); 
+        if (!resUser.ok) {
+            throw new Error('Login exitoso, pero no se pudo obtener el rol del usuario.');
+        }
+
+        const dataUser = await resUser.json();
+        const userRole = dataUser.role; 
 
         
-        window.location.href = 'admin_medicos.html';
+        sessionStorage.setItem('accessToken', token);
+        sessionStorage.setItem('usuario', userUsername);
+        sessionStorage.setItem('userRole', userRole); // 
+
+        
+        if (userRole === 'admin') {
+            window.location.href = 'admin_medicos.html';
+        } else {
+            // Si es 'user' o 'moderator', va a reservas
+            window.location.href = 'reservas.html'; 
+        }
 
     } catch (err) {
-      console.error('Login fallido:', err.message);
+      console.error('Fallo en el proceso de login:', err.message);
       errorMsg.textContent = err.message;
       errorMsg.style.display = 'block';
-    }
+  }
 }
 
 // (sea cual sea el ID) y asigna el evento

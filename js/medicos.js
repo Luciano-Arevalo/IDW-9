@@ -1,3 +1,4 @@
+
 // medicos.js
 
 const MEDICOS_INICIALES = [
@@ -104,12 +105,29 @@ function renderizarCatalogo() {
           <h5 class="card-title">${medico.nombre}</h5>
           <p class="card-text">${medico.especialidad}</p>
           <p class="card-text text-muted small">${medico.descripcion}</p>
+          <a href="../html/formulario_reserva.html?medicoId=${medico.id}" class="btn btn-primary w-100">Reservar</a>
         </div>
       </div>
     `;
     contenedor.appendChild(col);
   });
 }
+
+function popularSelectEspecialidades() {
+  const select = document.getElementById('especialidadSelect');
+  if (!select) return;
+
+  const especialidades = obtenerEspecialidades();
+  select.innerHTML = '';
+  select.innerHTML = '<option value="">-- Seleccione una especialidad --</option>';
+  especialidades.forEach(esp => {
+    const option = document.createElement('option');
+    option.value = esp.nombre;
+    option.textContent = esp.nombre;
+    select.appendChild(option);
+  });
+}
+
 
 // RENDERIZADO
 function renderizarTabla() {
@@ -140,7 +158,7 @@ function cargarFormularioEdicion(id) {
   const medico = obtenerMedicos().find(m => m.id === id);
   if (medico) {
     document.getElementById('nombre').value = medico.nombre;
-    document.getElementById('especialidad').value = medico.especialidad;
+    document.getElementById('especialidadSelect').value = medico.especialidad;
     document.getElementById('descripcion').value = medico.descripcion;
     document.getElementById('imagen').value = medico.imagen;
     document.getElementById('medicoId').value = medico.id;
@@ -153,7 +171,7 @@ function manejarEnvioFormulario(event) {
   const id = document.getElementById('medicoId').value;
   const nuevoMedico = {
     nombre: document.getElementById('nombre').value,
-    especialidad: document.getElementById('especialidad').value,
+    especialidad: document.getElementById('especialidadSelect').value,
     descripcion: document.getElementById('descripcion').value,
     imagen: document.getElementById('imagen').value
   };
@@ -173,6 +191,7 @@ function manejarEnvioFormulario(event) {
   inicializarLocalStorage();
   renderizarTabla();
   renderizarCatalogo(); // Renderizo el catálogo
+  popularSelectEspecialidades();
 
   const formMedico = document.getElementById('formMedico');
 if (formMedico) {
