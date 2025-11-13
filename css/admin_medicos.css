@@ -65,7 +65,7 @@ html, body {
 }
 
 #tablaMedicosBody tr {
-    min-height: 0; 
+    min-height: 65px; 
     height: auto;
 }
 
