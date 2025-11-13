@@ -64,6 +64,27 @@ html, body {
     border-right: 1px solid #dee2e6;
 }
 
+#tablaMedicosBody tr {
+    min-height: 65px; 
+    height: auto;
+}
+
+.table thead th:nth-child(9), 
+#tablaMedicosBody tr td:nth-child(9) {
+    white-space: normal !important; 
+    
+    width: 250px; 
+    max-width: 250px;
+}
+
+.table thead th,
+#tablaMedicosBody tr td {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
 .table thead th:last-child,
 #tablaMedicosBody tr td:last-child {
     border-right: none;
