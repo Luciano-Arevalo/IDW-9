@@ -3,93 +3,80 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultado = document.getElementById("resultado");
     const btnBorrar = document.getElementById("borrar");
 
-
     const CONTACTOS_KEY = "contactosAgregados"; 
 
     if (!form) {
-        console.warn(
-            'contacto.js: elemento con id "formContacto" no encontrado. No se aplicará comportamiento.'
-        );
         return;
     }
 
     const mostrarResultado = (texto) => {
         if (resultado) {
             resultado.textContent = texto;
+            resultado.style.display = 'block'; 
         } else {
             console.log("Resultado:", texto);
         }
     };
     
-
     const cargarYMostrarUltimoContacto = () => {
         const contactos = JSON.parse(localStorage.getItem(CONTACTOS_KEY)) || [];
         if (contactos.length > 0) {
             const ultimo = contactos[contactos.length - 1];
-            const texto = `Último guardado: Nombre: ${ultimo.nombre ?? "-"} - Email: ${ultimo.email ?? "-"}`;
+            const texto = `Último guardado: ${ultimo.nombre} (${ultimo.email}) - Total: ${contactos.length}`;
             mostrarResultado(texto);
         } else {
             mostrarResultado("No hay contactos guardados.");
         }
     };
 
-    cargarYMostrarUltimoContacto();
+    cargarYMostrarUltimoContacto(); 
+    
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("email");
 
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const dni = document.getElementById("dni").value.trim();
+        const area = document.getElementById("area").value;
+        const consulta = document.getElementById("consulta").value.trim();
 
-        const nombreInput = document.getElementById("nombre");
-        const emailInput = document.getElementById("email");
-
-
-        const nombre = nombreInput ? nombreInput.value.trim() : "";
-        const email = emailInput ? emailInput.value.trim() : "";
-
-        if (!nombre && !email) {
-                mostrarResultado("¡Debe ingresar al menos Nombre o Email!");
-                    return;
+        if (!nombre || !email) {
+             mostrarResultado("ERROR: Nombre y Email son obligatorios.");
+             return;
         }
-
 
         const nuevoContacto = {
             id: Date.now(),
             nombre: nombre,
             email: email,
-            fechaGuardado: new Date().toLocaleString(),
-            
+            telefono: telefono,
+            dni: dni,
+            area: area,
+            consulta: consulta,
+            fechaGuardado: new Date().toLocaleString()
         };
 
         let contactosGuardados = JSON.parse(localStorage.getItem(CONTACTOS_KEY)) || [];
 
-  
         contactosGuardados.push(nuevoContacto);
 
-     
         localStorage.setItem(CONTACTOS_KEY, JSON.stringify(contactosGuardados));
 
-        mostrarResultado(`¡Contacto guardado! Total: ${contactosGuardados.length}`);
+        mostrarResultado(`¡Contacto de ${nombre} guardado! Total: ${contactosGuardados.length}`);
         form.reset();
-        cargarYMostrarUltimoContacto();
     });
 
-   
     if (btnBorrar) {
         btnBorrar.addEventListener("click", () => {
-            
             localStorage.removeItem(CONTACTOS_KEY); 
             
-            
-            localStorage.removeItem("nombre");
-            localStorage.removeItem("email");
-
-            mostrarResultado("Todos los contactos eliminados.");
+            mostrarResultado("Todos los contactos han sido eliminados del Local Storage.");
             form.reset();
         });
-    } else {
-        console.info(
-            'contacto.js: no se encontró botón con id "borrar". Sin funcionalidad de borrado desde UI.'
-        );
     }
 });
