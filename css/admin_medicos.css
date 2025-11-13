@@ -47,12 +47,13 @@ html, body {
   vertical-align: middle;
 }
 
-#tablaMedicosBody td:first-child img {
-  width: 52px;
-  height: 52px;
-  object-fit: cover;
-  border-radius: 6px;
-  display: block;
+#tablaMedicosBody td:nth-child(1) img {
+    width: 45px !important; 
+    height: 45px !important;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto; 
 }
 
 .btn-accion {
@@ -200,29 +201,42 @@ html, body {
 #tablaMedicosBody tr td {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap; 
     vertical-align: middle;
 }
 
 .table thead th:nth-child(1),
 #tablaMedicosBody tr td:nth-child(1) {
+    width: 65px;
+    max-width: 65px;
+    padding: 0.5rem; 
+}
+
+.table thead th:nth-child(2), 
+#tablaMedicosBody tr td:nth-child(2) {
     width: 60px;
     max-width: 60px;
 }
 
-#tablaMedicosBody td:first-child img {
-    width: 45px;
-    height: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-}
-
-.table thead th:nth-child(2), 
-#tablaMedicosBody tr td:nth-child(2),
 .table thead th:nth-child(3),
 #tablaMedicosBody tr td:nth-child(3) {
-    width: 80px;
-    max-width: 80px;
+    width: 100px;
+    max-width: 100px;
+}
+
+.table thead th:nth-child(4),
+#tablaMedicosBody tr td:nth-child(4),
+.table thead th:nth-child(5),
+#tablaMedicosBody tr td:nth-child(5) {
+    min-width: 120px; 
+    max-width: 150px; 
+}
+
+
+.table thead th:nth-child(6),
+#tablaMedicosBody tr td:nth-child(6) {
+    width: 150px;
+    max-width: 150px;
 }
 
 .table thead th:nth-child(7),
@@ -235,7 +249,6 @@ html, body {
 #tablaMedicosBody tr td:nth-child(8) {
     width: 120px;
     max-width: 120px;
-    white-space: nowrap; 
 }
 
 .table thead th:nth-child(9),
@@ -249,4 +262,8 @@ html, body {
 #tablaMedicosBody tr td:nth-child(10) {
     width: 85px;
     max-width: 85px;
+}
+
+.table-responsive {
+    overflow-x: auto; 
 }
