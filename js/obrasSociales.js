@@ -1,45 +1,15 @@
-/*
-// obrasSociales.js
-
-const OBRAS_SOCIALES_INICIALES = [
-  { id: 1, nombre: 'Obra Social 1' },
-  { id: 2, nombre: 'Obra Social 2' },
-  { id: 3, nombre: 'Obra Social 3' }
-];
-
-const STORAGE_KEY_OBRAS_SOCIALES = 'obrasSociales';
-
-function inicializarObrasSociales() {
-  if (!localStorage.getItem(STORAGE_KEY_OBRAS_SOCIALES)) {
-    localStorage.setItem(STORAGE_KEY_OBRAS_SOCIALES, JSON.stringify(OBRAS_SOCIALES_INICIALES));
-  }
-}
-
-function obtenerObrasSociales() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY_OBRAS_SOCIALES)) || [];
-}
-
-function agregarObraSocial(obraSocial) {
-  const obrasSociales = obtenerObrasSociales();
-  obraSocial.id = Date.now(); 
-  obrasSociales.push(obraSocial);
-  localStorage.setItem(STORAGE_KEY_OBRAS_SOCIALES, JSON.stringify(obrasSociales));
-}
-
-function eliminarObraSocial(id) {
-  const obrasSociales = obtenerObrasSociales().filter(o => o.id !== id);
-  localStorage.setItem(STORAGE_KEY_OBRAS_SOCIALES, JSON.stringify(obrasSociales));
-}
-
-inicializarObrasSociales();
-*/
-
 const OBRAS_SOCIALES_INICIALES = [
   { id: 1, nombre: 'Salud Total Plus' },
   { id: 2, nombre: 'Old Argentina' },
   { id: 3, nombre: 'Vida Sana Prepaga' },
   { id: 4, nombre: 'Cobertura Médica Sur' }
 ];
+const DESCRIPCIONES_OBRAS_SOCIALES = {
+  1: 'Planes disponibles: Básico, Familiar, Premium. Estudios no cubiertos: cirugía estética, implantes dentales. Enfoque: cobertura nacional con beneficios exclusivos.',
+  2: 'Planes disponibles: Tradicional, Jubilados. Estudios no cubiertos: tratamientos experimentales, fertilización asistida. Enfoque: amplia red de prestadores en todo el país.',
+  3: 'Planes disponibles: Preventivo, Bienestar. Estudios no cubiertos: cirugía estética, ortodoncia. Enfoque: medicina preventiva y promoción de hábitos saludables.',
+  4: 'Planes disponibles: Regional, Familiar. Estudios no cubiertos: tratamientos fuera de zona, cirugía estética. Enfoque: atención personalizada en el sur del país.'
+};
 const STORAGE_KEY_OBRAS_SOCIALES = 'obrasSociales';
 
 function inicializarObrasSociales() {
@@ -47,9 +17,15 @@ function inicializarObrasSociales() {
     localStorage.setItem(STORAGE_KEY_OBRAS_SOCIALES, JSON.stringify(OBRAS_SOCIALES_INICIALES));
   }
 }
+
 function obtenerObrasSociales() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY_OBRAS_SOCIALES)) || [];
+  const obras = JSON.parse(localStorage.getItem(STORAGE_KEY_OBRAS_SOCIALES)) || [];
+  return obras.map(obra => ({
+    ...obra,
+    descripcion: DESCRIPCIONES_OBRAS_SOCIALES[obra.id] || 'Sin descripción disponible.'
+  }));
 }
+
 function guardarObrasSociales(obrasSociales) {
   localStorage.setItem(STORAGE_KEY_OBRAS_SOCIALES, JSON.stringify(obrasSociales));
 }
@@ -90,24 +66,25 @@ function cargarFormularioEdicion(id) {
 }
 
 function renderizarTablaObrasSociales() {
-  const contenedor = document.getElementById('tablaObrasSocialesBody');
-  if (!contenedor) return; 
+    const contenedor = document.getElementById('tablaObrasSocialesBody');
+    if (!contenedor) return;
 
-  const obrasSociales = obtenerObrasSociales();
-  contenedor.innerHTML = ''; 
+    const obrasSociales = obtenerObrasSociales();
+    contenedor.innerHTML = '';
 
-  obrasSociales.forEach(obra => {
-    const fila = document.createElement('tr');
-    fila.innerHTML = `
-      <td>${obra.id}</td>
-      <td>${obra.nombre}</td>
-      <td>
-        <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${obra.id})">✏️</button>
-        <button class="btn btn-sm btn-danger" onclick="eliminarObraSocial(${obra.id})">🗑️</button>
-      </td>
-    `;
-    contenedor.appendChild(fila);
-  });
+    obrasSociales.forEach(obra => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${obra.id}</td>
+            <td>${obra.nombre}</td>
+            <td>${obra.descripcion}</td> <!-- Aquí se agrega la descripción -->
+            <td>
+                <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${obra.id})">✏️</button>
+                <button class="btn btn-sm btn-danger" onclick="eliminarObraSocial(${obra.id})">🗑️</button>
+            </td>
+        `;
+        contenedor.appendChild(fila);
+    });
 }
 
 function renderizarCatalogoObrasSociales() {
@@ -120,10 +97,11 @@ function renderizarCatalogoObrasSociales() {
   obras.forEach(obra => {
     const col = document.createElement('div');
     col.className = 'col';
-  col.innerHTML = `
+    col.innerHTML = `
       <div class="card shadow-sm p-2">
         <img src="../imagenes/obra_generica.png" class="card-img-top" alt="${obra.nombre}" style="object-fit: contain; height: 80px;">
         <p class="mt-2 fw-semibold text-primary">${obra.nombre}</p>
+        <p class="text-muted small">${obra.descripcion}</p> <!-- Asegúrate de que esta línea esté activa -->
       </div>
     `;
     contenedor.appendChild(col);
