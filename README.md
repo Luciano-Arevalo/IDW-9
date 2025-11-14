@@ -27,3 +27,8 @@ Sitio web sencillo con estructura básica que incluye páginas de inicio, inform
 
 ## Enlace al repositorio:
 https://github.com/Luciano-Arevalo/IDW-9
+
+
+## contraseñas:
+User: emilys 
+pass: emilyspass
