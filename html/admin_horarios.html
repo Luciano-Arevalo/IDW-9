@@ -40,6 +40,7 @@
       <li><a class="dropdown-item" href="admin_especialidades.html">Especialidades</a></li>
       <li><a class="dropdown-item" href="admin_horarios.html">Horarios</a></li>
       <li><a class="dropdown-item" href="admin_obras_sociales.html">Obras Sociales</a></li>
+      <li><a class="dropdown-item" href="admin_turnos.html">Turnos</a></li>
     </ul>
   </li>
   
@@ -69,6 +70,14 @@
                 <label for="horarioHora" class="form-label">Horario (ej: 10:00 AM)</label>
                 <input type="text" id="horarioHora" class="form-control" required />
             </div>
+            <div class="mb-3">
+                <label for="horarioEspecialidades" class="form-label">Especialidades (separadas por coma)</label>
+                <input type="text" class="form-control" id="horarioEspecialidades" placeholder="Ej: Cardiología, Pediatría">
+            </div>
+
+            <div class="mb-3">
+                <label for="horarioDisponible" class="form-label d-block">Disponibilidad</label>
+                </div>
 
             <div class="col-md-3">
                 <div class="form-check">
@@ -90,7 +99,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Hora</th>
-                        <th>Disponible</th>
+                        <th>Especialidades</th>    <th>Disponible</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

@@ -77,7 +77,7 @@ function renderizarTablaObrasSociales() {
         fila.innerHTML = `
             <td>${obra.id}</td>
             <td>${obra.nombre}</td>
-            <td>${obra.descripcion}</td> <!-- Aquí se agrega la descripción -->
+            <td>${obra.descripcion}</td> 
             <td>
                 <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${obra.id})">✏️</button>
                 <button class="btn btn-sm btn-danger" onclick="eliminarObraSocial(${obra.id})">🗑️</button>

@@ -89,6 +89,7 @@ function inicializarFormulario() {
 
     
     const nuevaReserva = {
+      id: Date.now(), 
       medicoId: Number(document.getElementById('reserva-medico-id').value),
       pacienteNombre: document.getElementById('pacienteNombre').value,
       pacienteDNI: document.getElementById('pacienteDNI').value,
