@@ -111,23 +111,54 @@ function renderizarCatalogo() {
   }
 
   const medicos = obtenerMedicos();
+  const obrasSocialesMaestro = obtenerObrasSociales();
   contenedor.innerHTML = ''; // Limpio el catalógo antes de renderizar
 
   medicos.forEach(medico => {
     const col = document.createElement('div');
     col.className = 'col'; 
+    const valorFormateado =
+      medico.valorConsulta && !isNaN(medico.valorConsulta)
+        ? `$${medico.valorConsulta.toLocaleString("es-AR")}`
+        : "No disponible";
+        
+    let obrasSocialesNombres = "No acepta";
+    if (medico.obrasSociales && medico.obrasSociales.length > 0) {
+      obrasSocialesNombres = medico.obrasSociales.map(idBuscado => {
+        const obra = obrasSocialesMaestro.find(o => o.id === idBuscado);
+        return obra ? obra.nombre : 'Desconocida';
+      }).join(', ');
+    }
 
     col.innerHTML = `
-      <div class="card h-100 shadow-sm">
-        <img src="${medico.imagen}" class="card-img-top" alt="Foto de ${medico.nombre}">
-        <div class="card-body">
-          <h5 class="card-title">${medico.nombre}</h5>
-          <p class="card-text">${medico.especialidad}</p>
-          <p class="card-text text-muted small">${medico.descripcion}</p>
-          <a href="../html/formulario_reserva.html?medicoId=${medico.id}" class="btn btn-primary w-100">Reservar</a>
-        </div>
+  <div class="card h-100 shadow-sm">
+    <img src="${medico.imagen}" class="card-img-top" alt="Foto de ${medico.nombre}">
+    <div class="card-body d-flex flex-column">
+      
+            <h5 class="card-title">${medico.nombre}</h5>
+      <p class="text-muted small mb-1">Matrícula: ${medico.matricula || 'N/A'}</p>
+      <p class="card-text text-primary fw-bold">${medico.especialidad}</p>
+      <p class="card-text text-muted small flex-grow-1">${medico.descripcion}</p>
+      
+      <div class="border-top pt-2 mt-2">
+        <p class="card-text text-muted small mb-1" style="word-break: break-all;">
+          <strong>Email:</strong> ${medico.email || 'N/A'}
+        </p>
+        <p class="card-text text-muted small mb-0">
+          <strong>Obras Sociales:</strong> ${obrasSocialesNombres}
+        </p>
       </div>
-    `;
+
+            <div class="d-flex justify-content-between align-items-center my-3">
+        <span class="text-muted">Consulta:</span>
+        <span class="fs-5 fw-bold text-primary">${valorFormateado}</span>
+      </div>
+      
+      <a href="../html/formulario_reserva.html?medicoId=${medico.id}" class="btn btn-primary w-100 mt-auto">Reservar</a>
+	
+    </div>
+  </div>
+`;
     contenedor.appendChild(col);
   });
 }
@@ -152,6 +183,9 @@ function popularSelectEspecialidades() {
 function renderizarTabla() {
   const medicos = obtenerMedicos();
   const contenedor = document.getElementById('tablaMedicosBody');
+   if (!contenedor) {
+    return;
+  }
   contenedor.innerHTML = ''; 
 
   medicos.forEach(medico => {
@@ -166,13 +200,17 @@ function renderizarTabla() {
         : 'Ninguna';
 
     fila.innerHTML = `
-      <td><img src="${medico.imagen}" alt="${medico.nombre}"class="tabla-img"></td>
-      <td>${medico.id}</td>                   
-      <td>${medico.matricula || 'N/A'}</td>      <td>${medico.nombre}</td>              
-      <td>${medico.especialidad}</td>        
-      <td>${medico.email || 'N/A'}</td>
-      <td>${valorConsultaFormateado}</td>      <td>${obrasSocialesTexto}</td>           <td>${medico.descripcion}</td>
-      <td> 
+      <td><img src="${medico.imagen}" alt="${medico.nombre}" width="70" style="object-fit: cover; border-radius: 6px; min-width: 70px;"></td>
+      <td>${medico.matricula || "N/A"}</td>
+      <td>${medico.nombre}</td>
+      <td>${medico.especialidad}</td>
+      <td>${medico.email || "N/A"}</td>
+      <td>${valorConsultaFormateado}</td>
+      <td>${obrasSocialesTexto}</td>
+    
+      <td class="text-truncate" style="max-width: 150px;">${medico.descripcion}</td>
+      
+      <td>
         <button class="btn btn-sm btn-warning" onclick="cargarFormularioEdicion(${medico.id})">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="eliminarMedico(${medico.id})">🗑️</button>
       </td>
@@ -209,7 +247,7 @@ function manejarEnvioFormulario(event) {
   const nuevoMedico = {
     matricula: Number(document.getElementById('matricula').value),
     nombre: document.getElementById('nombre').value,
-    especialidad: document.getElementById('especialidad').value,
+    especialidad: document.getElementById('especialidadSelect').value,
     email: document.getElementById('email').value,
     valorConsulta: Number(document.getElementById('valorConsulta').value),
     obrasSociales: obrasSocialesArray,
